@@ -21,6 +21,7 @@ import psycopg2
 # ADAFRUIT User Information --------------------------------------
 ADAFRUIT_USERNAME = "dangnguyen"
 BROKER_ADDRESS = "io.adafruit.com"
+ADAFRUIT_ACCESS_TOKEN = "aio_jQtu93uvUOlMqTzCH8h4HsniQlvn"
 PORT = 1883
 #  ---------------------------------------------------------------
 
@@ -52,11 +53,11 @@ lightValue = ""
 # Get serial port =======================
 
 '''
-	@name: find_port()
-	@param:
-		None
-	@exp:
-		Find serial port connects to YOLO:bit.
+    @name: find_port()
+    @param:
+        None
+    @exp:
+        Find serial port connects to YOLO:bit.
 '''
 # def find_port():
 #     for port in list(serial.tools.list_ports.comports()):
@@ -144,11 +145,11 @@ def connected(client, userdata, flags, rc):
 # Serial process ------------------------------------
 
 '''
-	@name: processData()
-	@param:
-		data: string
-	@exp:
-		from Serial, received data will be processed and pushed to Adafruit.
+    @name: processData()
+    @param:
+        data: string
+    @exp:
+        from Serial, received data will be processed and pushed to Adafruit.
 '''
 def processData(data):
     data = data.replace("!", "")
@@ -158,19 +159,19 @@ def processData(data):
     
     if splitData[0] == "TEMP":
         client.publish(feed + AIO_FEED_PUBLISH[0], int(splitData[1]))
-  		serial.write("!ACK:TE#".encode())
+        serial.write("!ACK:TE#".encode())
 
-	if splitData[0] == "LI":
+    if splitData[0] == "LI":
         client.publish(feed + AIO_FEED_PUBLISH[1], int(splitData[1]))
-  		serial.write("!ACK:LI#".encode())
+        serial.write("!ACK:LI#".encode())
 
 
 '''
-	@name: readSerial()
-	@param:
-		None
-	@exp:
-		Receiving data by readind byte to byte, and each message is between "!" and "#" characters.
+    @name: readSerial()
+    @param:
+        None
+    @exp:
+        Receiving data by readind byte to byte, and each message is between "!" and "#" characters.
 '''
 def readSerial():
     bytesToRead = ser.inWaiting()
@@ -213,7 +214,7 @@ client.on_message = recv_message
 ######################## DONE ########################
 
 '''
-	Enter while loop.
+    Enter while loop.
 '''
 while True:
 
