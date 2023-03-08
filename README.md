@@ -14,10 +14,11 @@ In this project, we will implement a smart home system using YOLO:bit as a main 
 ## Update
 
 ### v.1.0
+* Gateway and YOLO:bit are serial connected.
 * Gateway: 
     + Communication and get data from server.
 ![GATEWAY - Received data from Server](img/v.1.0/gateway_receive.png)
     + Push data to server.
-    
+
 * YOLO:bit: Receiving and sending data to gateway.
 
