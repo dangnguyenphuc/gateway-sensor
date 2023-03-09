@@ -1,5 +1,3 @@
-# ###################################### MacOS, Chrome 98. ######################################
-
 print("Hello")      # Debug file
 
 # Import packages ###############################
@@ -21,7 +19,7 @@ import psycopg2
 # ADAFRUIT User Information --------------------------------------
 ADAFRUIT_USERNAME = "dangnguyen"
 BROKER_ADDRESS = "io.adafruit.com"
-ADAFRUIT_ACCESS_TOKEN = "aio_jQtu93uvUOlMqTzCH8h4HsniQlvn"
+ADAFRUIT_ACCESS_TOKEN = "aio_fSax93RtnG5DIqqKH6c2d8Es2Xgd"
 PORT = 1883
 #  ---------------------------------------------------------------
 
@@ -29,14 +27,21 @@ PORT = 1883
 
 # Adafruit feeds ------------------------------------------------------
 feed = "dangnguyen/feeds/"
-AIO_FEED_INPUT = ["button1/", "button2/", "FanValue/", "LightValue/"]
+AIO_FEED_SUBCRIBE = [   "button1/",         # Fan controller
+                        "button2/",         # Light controller
+                        "FanValue/",        # Fan's rotation
+                        "LightValue/",      # Light's brightness
+                        "sensor1/",         # temperature sensor
+                        "sensor2/"]         # light sensor
 AIO_FEED_PUBLISH = ["sensor1", "sensor2",]
 jsons = "json"
 feedID = {
     "button1": 2463386,
     "button2": 2463387,
     "FanValue": 2463415,
-    "LightValue": 2465220
+    "LightValue": 2465220,
+    "sensor1": 2462542,
+    "sensor2": 2464202
 }
 # ---------------------------------------------------------------------
 
@@ -122,6 +127,12 @@ def recv_message(client, userdata, message):
             if received["last_value"] == "OFF":
                 cmd = "!LI:OFF#"
 
+        if received["id"] == feedID["sensor1"]:
+            print("Temp: " + received["last_value"] + "°C")
+
+        if received["id"] == feedID["sensor2"]:
+            print("Light: " + received["last_value"] + " lux")
+
     except: 
         pass
     print(cmd)
@@ -132,7 +143,7 @@ def recv_message(client, userdata, message):
 def connected(client, userdata, flags, rc):
         try:
             print("Connected successfully!!")
-            for topic in AIO_FEED_INPUT:
+            for topic in AIO_FEED_SUBCRIBE:
                 client.subscribe(feed+topic+jsons)
         except:
             print("Connection is failed")
@@ -190,6 +201,7 @@ def readSerial():
 # --------------------------------------------------------------------
 
 
+
 ######################## PAHO-MQTT CONNECTION ########################
 # define client
 client = mqttclient.Client("Gateway_Adafruit")
@@ -203,6 +215,7 @@ client.username_pw_set(ADAFRUIT_USERNAME, ADAFRUIT_ACCESS_TOKEN)
         # 8883: Secure port.
         # 443: MQTT through Websocket. 
 client.connect(BROKER_ADDRESS, 1883)
+
 
 # subcribe and receive data from server. _________
 client.on_connect = connected
