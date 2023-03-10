@@ -7,19 +7,39 @@ import time
 import serial.tools.list_ports
 import random
 import psycopg2
+from datetime import datetime
 ################ Import packages ################ 
 
-# conn = psycopg2.connect(database="sensor_data",
-#                         host="localhost",
+# DATA QUERY EXAMPLE ############################
+
+# conn = psycopg2.connect(database="gateway",
+#                         host="192.168.1.12",
 #                         user="postgres",
 #                         password="password",
 #                         port="5432")
+
+# current_time = datetime.now().strftime("%H:%M:%S")
+# print("Current Time =", current_time)
+
+# temp = "BUTTON1:ON"
+# splitData = temp.split(":")
+# cursor = conn.cursor()
+# cursor.execute("INSERT INTO feed_value (feed_name,timestamp,value) VALUES ('button1','"+current_time+"',1)")
+# conn.commit()
+# cursor.execute("SELECT * FROM feed_value;")
+# print(cursor.fetchall())
+# cursor.close()
+# conn.close()
+
+################ DATA QUERY EXAMPLE ################
+
+
 
 
 # ADAFRUIT User Information --------------------------------------
 ADAFRUIT_USERNAME = "dangnguyen"
 BROKER_ADDRESS = "io.adafruit.com"
-ADAFRUIT_ACCESS_TOKEN = "aio_fSax93RtnG5DIqqKH6c2d8Es2Xgd"
+ADAFRUIT_ACCESS_TOKEN = "aio_rjuW84d3fI6sJeLCCCdD3pKR5GPH"
 PORT = 1883
 #  ---------------------------------------------------------------
 
@@ -32,8 +52,17 @@ AIO_FEED_SUBCRIBE = [   "button1/",         # Fan controller
                         "FanValue/",        # Fan's rotation
                         "LightValue/",      # Light's brightness
                         "sensor1/",         # temperature sensor
-                        "sensor2/"]         # light sensor
-AIO_FEED_PUBLISH = ["sensor1", "sensor2",]
+                        "sensor2/",         # light sensor
+                        "FanDisplay/",
+                        "LightDisplay/"]         
+AIO_FEED_PUBLISH = ["sensor1", 
+                    "sensor2",
+                    "button1", 
+                    "button2", 
+                    "FanValue", 
+                    "LightValue",
+                    "FanDisplay",
+                    "LightDisplay"]
 jsons = "json"
 feedID = {
     "button1": 2463386,
@@ -41,7 +70,9 @@ feedID = {
     "FanValue": 2463415,
     "LightValue": 2465220,
     "sensor1": 2462542,
-    "sensor2": 2464202
+    "sensor2": 2464202,
+    "LightDisplay" : 2470613,
+    "FanDisplay" : 2470612
 }
 # ---------------------------------------------------------------------
 
@@ -100,7 +131,7 @@ def recv_message(client, userdata, message):
                 
                 if int(fanValue) >= 100:
                     fanValue = "100"
-
+                client.publish(feed + AIO_FEED_PUBLISH[6], int(fanValue))
                 cmd = "!FAN:ON:"+fanValue+"#"
         
         if received["id"] == feedID["LightValue"]:
@@ -112,19 +143,23 @@ def recv_message(client, userdata, message):
                 
                 if int(lightValue) >= 100:
                     lightValue = "100"
-
+                client.publish(feed + AIO_FEED_PUBLISH[7], int(lightValue))
                 cmd = "!LI:ON:"+lightValue+"#"
 
-        if received["id"] == feedID["button1"]:
+        if received["id"] == feedID["button1"] or received["id"] == feedID["FanDisplay"] :
             if received["last_value"] == "ON":
                 cmd = "!FAN:ON:0#"
-            if received["last_value"] == "OFF":
+            if int(received["last_value"]) > 0:
+                cmd = "!FAN:ON:" + str(received["last_value"]) + "#"
+            if received["last_value"] == "OFF" or received["last_value"] == "0":
                 cmd = "!FAN:OFF#"
         
-        if received["id"] == feedID["button2"]:
+        if received["id"] == feedID["button2"] or received["id"] == feedID["LightDisplay"]:
             if received["last_value"] == "ON":
                 cmd = "!LI:ON:0#"
-            if received["last_value"] == "OFF":
+            if int(received["last_value"]) > 0:
+                cmd = "!LI:ON:" + str(received["last_value"]) + "#"
+            if received["last_value"] == "OFF" or received["last_value"] == "0":
                 cmd = "!LI:OFF#"
 
         if received["id"] == feedID["sensor1"]:
@@ -145,6 +180,7 @@ def connected(client, userdata, flags, rc):
             print("Connected successfully!!")
             for topic in AIO_FEED_SUBCRIBE:
                 client.subscribe(feed+topic+jsons)
+                print("Connected to " + topic + " successfully!!")
         except:
             print("Connection is failed")
             pass
@@ -168,7 +204,7 @@ def processData(data):
     splitData = data.split(":")
     print(splitData)
     
-    if splitData[0] == "TEMP":
+    if splitData[0] == "TE":
         client.publish(feed + AIO_FEED_PUBLISH[0], int(splitData[1]))
         serial.write("!ACK:TE#".encode())
 
@@ -176,6 +212,18 @@ def processData(data):
         client.publish(feed + AIO_FEED_PUBLISH[1], int(splitData[1]))
         serial.write("!ACK:LI#".encode())
 
+    if splitData[0] == "BUT":
+        if splitData[1] == "1":
+            client.publish(feed + AIO_FEED_PUBLISH[2], (splitData[1]))
+            if splitData[1] == "ON":
+                client.publish(feed + AIO_FEED_PUBLISH[6], int(splitData[2]))
+            serial.write("!ACK:B1#".encode())
+
+        if splitData[2] == "2":
+            client.publish(feed + AIO_FEED_PUBLISH[3], (splitData[1]))
+            if splitData[1] == "ON":
+                client.publish(feed + AIO_FEED_PUBLISH[7], int(splitData[2]))
+            serial.write("!ACK:B2#".encode())
 
 '''
     @name: readSerial()
@@ -244,12 +292,4 @@ while True:
 
 
 
-# temp = "TE:34.3"
-# splitData = temp.split(":")
-# cursor = conn.cursor()
-# cursor.execute("INSERT INTO sensor (id,kind,value) VALUES (2,'" + splitData[0].lower() + "'," + splitData[1] + ");")
-# conn.commit()
-# cursor.execute("SELECT * FROM sensor;")
-# print(cursor.fetchall())
-# cursor.close()
-# conn.close()
+
