@@ -1,32 +1,27 @@
+from event_manager import *
+import sys
+import uselect
 from yolobit import *
 button_a.on_pressed = None
 button_b.on_pressed = None
 button_a.on_pressed_ab = button_b.on_pressed_ab = -1
 import time
-from event_manager import *
-import sys
-import uselect
 from machine import Pin, SoftI2C
 from aiot_dht20 import DHT20
+from aiot_ir_receiver import *
 from aiot_lcd1602 import LCD1602
 
 # Mô tả hàm này...
-def receivedACK():
-  global default_fan_value, received_list, temp, cmd, ACK_temp_flag, lux, status, ACK_light_flag, temp_list, light_list, value, aiot_dht20, aiot_lcd1602
-  display.show(Image("44044:04440:40404:44044:04440"))
-  time.sleep_ms(100)
-  display.show(Image("40404:44044:04440:40404:44044"))
-  time.sleep_ms(100)
-  display.show(Image("04440:40404:44044:04440:40404"))
+def add_Status():
+  global t_C3_ADn_hi_E1_BB_87u, received_list, default_fan_value, b1_list, temp_list, default_light_value, ACK_b1_flag, ACK_temp_flag, temp, fan_status, fan_value, b2_list, light_list, cmd, ACK_b2_flag, ACK_light_flag, lux, light_status, light_value, status, aiot_ir_rx, aiot_dht20, aiot_lcd1602
+  b1_list[-1] = ''.join([str(x) for x in ['!', 'BUT:1:', fan_status, ':', fan_value, '#']])
+  b2_list[-1] = ''.join([str(x2) for x2 in ['!', 'BUT:2:', light_status, ':', light_value, '#']])
 
 # Mô tả hàm này...
-def sendACK():
-  global default_fan_value, received_list, temp, cmd, ACK_temp_flag, lux, status, ACK_light_flag, temp_list, light_list, value, aiot_dht20, aiot_lcd1602
-  display.show(Image("01110:11011:10101:01110:11011"))
-  time.sleep_ms(100)
-  display.show(Image("11011:10101:01110:11011:10101"))
-  time.sleep_ms(100)
-  display.show(Image("10101:01110:11011:10101:01110"))
+def add_sensor_value():
+  global t_C3_ADn_hi_E1_BB_87u, received_list, default_fan_value, b1_list, temp_list, default_light_value, ACK_b1_flag, ACK_temp_flag, temp, fan_status, fan_value, b2_list, light_list, cmd, ACK_b2_flag, ACK_light_flag, lux, light_status, light_value, status, aiot_ir_rx, aiot_dht20, aiot_lcd1602
+  temp_list[-1] = ''.join([str(x3) for x3 in ['!', 'TE:', temp, '#']])
+  light_list[-1] = ''.join([str(x4) for x4 in ['!', 'LI:', lux, '#']])
 
 event_manager.reset()
 
@@ -45,40 +40,98 @@ def read_terminal_input():
   return input
 
 def on_event_timer_callback_d_t_W_A_C():
-  global default_fan_value, received_list, temp, cmd, ACK_temp_flag, lux, status, ACK_light_flag, temp_list, light_list, value, http_response
+  global t_C3_ADn_hi_E1_BB_87u, default_fan_value, received_list, default_light_value, ACK_temp_flag, temp, ACK_b1_flag, b1_list, temp_list, cmd, ACK_light_flag, lux, fan_status, ACK_b2_flag, fan_value, b2_list, light_list, light_status, light_value, status
   received_list = read_terminal_input()[1 : -1].split(':')
-  cmd = received_list[0]
-  status = received_list[1]
-  display.show(cmd)
-  if cmd == 'FAN':
-    if status == 'ON':
-      value = received_list[2]
-      pin14.write_digital((1))
-      display.show(Image.HEART)
-      if (int(value)) == 0:
-        pin0.write_analog(round(translate(default_fan_value, 0, 100, 0, 1023)))
-        display.scroll('F1')
-      else:
-        pin0.write_analog(round(translate((int(value)), 0, 100, 0, 1023)))
-        display.scroll('F2')
-    if status == 'OFF':
-      display.show(Image.FABULOUS)
-      pin14.write_analog(round(translate(0, 0, 100, 0, 1023)))
-      pin15.write_digital((0))
-      pin14.write_digital((0))
-  if cmd == 'LI':
-    pass
-  if cmd == 'ACK':
-    if status == 'TE':
-      ACK_temp_flag = 1
-    if status == 'LI':
-      ACK_light_flag = 1
-    receivedACK()
+  if not not len(received_list):
+    cmd = received_list[0]
+    display.show(cmd)
+    if cmd == 'FAN':
+      fan_status = received_list[1]
+      if fan_status == 'ON':
+        fan_value = int((received_list[2]))
+        pin14.write_digital((1))
+        display.show(Image.HEART)
+        if fan_value == 0:
+          fan_value = default_fan_value
+          pin14.write_analog(round(translate(default_fan_value, 0, 100, 0, 1023)))
+          display.scroll('F1')
+        else:
+          pin14.write_analog(round(translate(fan_value, 0, 100, 0, 1023)))
+          display.scroll('F2')
+      if fan_status == 'OFF':
+        display.show(Image.FABULOUS)
+        pin14.write_analog(round(translate(0, 0, 100, 0, 1023)))
+        pin15.write_digital((0))
+        pin14.write_digital((0))
+    if cmd == 'LI':
+      light_status = received_list[1]
+      if light_status == 'ON':
+        light_value = int((received_list[2]))
+        display.show(Image.HEART_SMALL)
+        if light_value == 0:
+          light_value = default_light_value
+          display.scroll('L1')
+          pin0.write_digital(1)
+          pin0.write_analog(round(default_light_value*10.23))
+        else:
+          display.scroll('L2')
+          pin0.write_digital(1)
+          pin0.write_analog(round(light_value*10.23))
+      if light_status == 'OFF':
+        pin0.write_digital(0)
+        display.show(Image.CONFUSED)
+        pin0.write_digital((0))
+    if cmd == 'ACK':
+      status = received_list[1]
+      if status == 'TE':
+        ACK_temp_flag = 1
+        temp_list = temp_list[1 : ]
+      if status == 'LI':
+        ACK_light_flag = 1
+        light_list = light_list[1 : ]
+      if status == 'B1':
+        ACK_b1_flag = 1
+        b1_list = b1_list[1 : ]
+      if status == 'B2':
+        ACK_b2_flag = 1
+        b2_list = b2_list[1 : ]
+      receivedACK()
 
-event_manager.add_timer_event(200, on_event_timer_callback_d_t_W_A_C)
+event_manager.add_timer_event(100, on_event_timer_callback_d_t_W_A_C)
+
+# Mô tả hàm này...
+def receivedACK():
+  global t_C3_ADn_hi_E1_BB_87u, received_list, default_fan_value, b1_list, temp_list, default_light_value, ACK_b1_flag, ACK_temp_flag, temp, fan_status, fan_value, b2_list, light_list, cmd, ACK_b2_flag, ACK_light_flag, lux, light_status, light_value, status, aiot_ir_rx, aiot_dht20, aiot_lcd1602
+  display.show(Image("44044:04440:40404:44044:04440"))
+  time.sleep_ms(100)
+  display.show(Image("40404:44044:04440:40404:44044"))
+  time.sleep_ms(100)
+  display.show(Image("04440:40404:44044:04440:40404"))
+
+# Mô tả hàm này...
+def sendACK():
+  global t_C3_ADn_hi_E1_BB_87u, received_list, default_fan_value, b1_list, temp_list, default_light_value, ACK_b1_flag, ACK_temp_flag, temp, fan_status, fan_value, b2_list, light_list, cmd, ACK_b2_flag, ACK_light_flag, lux, light_status, light_value, status, aiot_ir_rx, aiot_dht20, aiot_lcd1602
+  display.show(Image("01110:11011:10101:01110:11011"))
+  time.sleep_ms(100)
+  display.show(Image("11011:10101:01110:11011:10101"))
+  time.sleep_ms(100)
+  display.show(Image("10101:01110:11011:10101:01110"))
+
+def on_event_timer_callback_J_O_C_n_V():
+  global t_C3_ADn_hi_E1_BB_87u, default_fan_value, received_list, default_light_value, ACK_temp_flag, temp, ACK_b1_flag, b1_list, temp_list, cmd, ACK_light_flag, lux, fan_status, ACK_b2_flag, fan_value, b2_list, light_list, light_status, light_value, status
+  if ACK_b1_flag == 1:
+    ACK_b1_flag = 0
+    sendACK()
+    print((b1_list[0]), end =' ')
+  if ACK_b2_flag == 1:
+    ACK_b2_flag = 0
+    sendACK()
+    print((b2_list[0]), end =' ')
+
+event_manager.add_timer_event(1000, on_event_timer_callback_J_O_C_n_V)
 
 def on_event_timer_callback_g_e_s_y_K():
-  global default_fan_value, received_list, temp, cmd, ACK_temp_flag, lux, status, ACK_light_flag, temp_list, light_list, value, http_response
+  global t_C3_ADn_hi_E1_BB_87u, default_fan_value, received_list, default_light_value, ACK_temp_flag, temp, ACK_b1_flag, b1_list, temp_list, cmd, ACK_light_flag, lux, fan_status, ACK_b2_flag, fan_value, b2_list, light_list, light_status, light_value, status
   if ACK_temp_flag == 1:
     ACK_temp_flag = 0
     sendACK()
@@ -88,50 +141,131 @@ def on_event_timer_callback_g_e_s_y_K():
     sendACK()
     print((light_list[0]), end =' ')
 
-event_manager.add_timer_event(5000, on_event_timer_callback_g_e_s_y_K)
+event_manager.add_timer_event(10000, on_event_timer_callback_g_e_s_y_K)
 
 aiot_dht20 = DHT20(SoftI2C(scl=Pin(22), sda=Pin(21)))
 
 def on_event_timer_callback_S_p_b_k_s():
-  global default_fan_value, received_list, temp, cmd, ACK_temp_flag, lux, status, ACK_light_flag, temp_list, light_list, value, http_response
+  global t_C3_ADn_hi_E1_BB_87u, default_fan_value, received_list, default_light_value, ACK_temp_flag, temp, ACK_b1_flag, b1_list, temp_list, cmd, ACK_light_flag, lux, fan_status, ACK_b2_flag, fan_value, b2_list, light_list, light_status, light_value, status
   aiot_dht20.read_dht20()
   temp = aiot_dht20.dht20_temperature()
   lux = round(translate((pin1.read_analog()), 0, 4095, 0, 100))
-  temp_list[-1] = ''.join([str(x) for x in ['!', 'TEMP', temp, '#']])
-  light_list[-1] = ''.join([str(x2) for x2 in ['!', 'LI:', lux, '#']])
+  add_sensor_value()
 
-event_manager.add_timer_event(4500, on_event_timer_callback_S_p_b_k_s)
+event_manager.add_timer_event(9500, on_event_timer_callback_S_p_b_k_s)
+
+aiot_ir_rx = IR_RX(Pin(pin1.pin, Pin.IN)); aiot_ir_rx.start();
+
+def on_ir_receive_callback(t_C3_ADn_hi_E1_BB_87u, addr, ext):
+  global default_fan_value, received_list, default_light_value, ACK_temp_flag, temp, ACK_b1_flag, b1_list, temp_list, cmd, ACK_light_flag, lux, fan_status, ACK_b2_flag, fan_value, b2_list, light_list, light_status, light_value, status
+  if aiot_ir_rx.get_code() == IR_REMOTE_A:
+    if fan_status == 'ON':
+      fan_status = 'OFF'
+      pin14.write_analog(round(translate(0, 0, 100, 0, 1023)))
+      pin15.write_digital((0))
+      pin14.write_digital((0))
+    else:
+      fan_status = 'ON'
+      fan_value = default_fan_value
+      pin14.write_analog(round(translate(default_fan_value, 0, 100, 0, 1023)))
+      pin14.write_digital((1))
+  if aiot_ir_rx.get_code() == IR_REMOTE_B:
+    if light_status == 'ON':
+      light_status = 'OFF'
+      pin0.write_digital(0)
+      pin0.write_digital((0))
+    else:
+      light_status = 'ON'
+      light_value = default_light_value
+      pin0.write_digital(1)
+      pin0.write_analog(round(default_light_value*10.23))
+  if aiot_ir_rx.get_code() == IR_REMOTE_RIGHT:
+    if fan_status == 'ON':
+      fan_value = fan_value + 10
+      if fan_value >= 100:
+        fan_value = 100
+      pin14.write_analog(round(translate(fan_value, 0, 100, 0, 1023)))
+  if aiot_ir_rx.get_code() == IR_REMOTE_LEFT:
+    if fan_status == 'ON':
+      fan_value = fan_value - 10
+      if fan_value <= 0:
+        fan_status = 'OFF'
+        fan_value = 0
+      pin14.write_analog(round(translate(fan_value, 0, 100, 0, 1023)))
+  if aiot_ir_rx.get_code() == IR_REMOTE_UP:
+    if light_status == 'ON':
+      light_value = light_value + 10
+      if light_value >= 100:
+        light_value = 100
+      pin0.write_digital(1)
+      pin0.write_analog(round(light_value*10.23))
+  if aiot_ir_rx.get_code() == IR_REMOTE_DOWN:
+    if light_status == 'ON':
+      light_value = light_value - 10
+      if light_value <= 0:
+        fan_status = 'OFF'
+        fan_value = 0
+        pin0.write_digital(0)
+      else:
+        pin0.write_digital(1)
+        pin0.write_analog(round(light_value*10.23))
+  add_Status()
+  aiot_ir_rx.clear_code()
+
+aiot_ir_rx.on_received(on_ir_receive_callback)
 
 aiot_lcd1602 = LCD1602()
 
 def on_event_timer_callback_l_J_T_D_h():
-  global default_fan_value, received_list, temp, cmd, ACK_temp_flag, lux, status, ACK_light_flag, temp_list, light_list, value, http_response
+  global t_C3_ADn_hi_E1_BB_87u, default_fan_value, received_list, default_light_value, ACK_temp_flag, temp, ACK_b1_flag, b1_list, temp_list, cmd, ACK_light_flag, lux, fan_status, ACK_b2_flag, fan_value, b2_list, light_list, light_status, light_value, status
   aiot_lcd1602.move_to(0, 0)
-  aiot_lcd1602.putstr('TEMP:')
-  aiot_lcd1602.move_to(7, 0)
+  aiot_lcd1602.putstr('TE:')
+  aiot_lcd1602.move_to(4, 0)
   aiot_lcd1602.putstr(temp)
-  aiot_lcd1602.move_to(11, 0)
-  aiot_lcd1602.putstr('C')
-  aiot_lcd1602.move_to(0, 1)
-  aiot_lcd1602.putstr('LUX: ')
-  aiot_lcd1602.move_to(7, 1)
+  aiot_lcd1602.move_to(8, 0)
+  aiot_lcd1602.putstr('F:')
+  aiot_lcd1602.move_to(10, 0)
+  aiot_lcd1602.putstr(fan_status)
+  if fan_status != 'OFF':
+    aiot_lcd1602.move_to(12, 1)
+    aiot_lcd1602.putstr(fan_status)
+  aiot_lcd1602.move_to(4, 1)
+  aiot_lcd1602.putstr('LI:')
+  aiot_lcd1602.move_to(4, 1)
   aiot_lcd1602.putstr(lux)
+  aiot_lcd1602.move_to(8, 1)
+  aiot_lcd1602.putstr('L:')
   aiot_lcd1602.move_to(10, 1)
-  aiot_lcd1602.putstr('lux')
+  aiot_lcd1602.putstr(light_status)
+  if light_status != 'OFF':
+    aiot_lcd1602.move_to(12, 1)
+    aiot_lcd1602.putstr(light_status)
 
 event_manager.add_timer_event(100, on_event_timer_callback_l_J_T_D_h)
 
 if True:
   default_fan_value = 40
+  default_light_value = 40
   temp = 0
   lux = 0
+  ACK_b1_flag = 1
+  ACK_b2_flag = 1
   ACK_temp_flag = 1
   ACK_light_flag = 1
   temp_list = []
   light_list = []
+  b1_list = []
+  b2_list = []
+  fan_status = 'OFF'
+  light_status = 'OFF'
+  fan_value = 0
+  light_value = 0
   display.clear()
   display.show(Image.SMILE)
 
 while True:
   event_manager.run()
   time.sleep_ms(1000)
+
+
+# send fan_status and light_status
