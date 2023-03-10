@@ -33,5 +33,5 @@ In this project, we will implement a smart home system using YOLO:bit as a main 
 ### v.1.1
 * Gateway: Correct some wrong syntax.
 
-### v.1.1
+### v.1.2
 * Gateway: Add local database to store sensors data.
