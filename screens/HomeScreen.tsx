@@ -64,7 +64,7 @@ const HomeScreen = ({navigation}: {navigation: any}) =>{
                                 <View style={styles.stateBox}>
                                     <Text style={styles.stateTextBox}> Bật</Text>
                                     <Switch         
-                                        trackColor={{false: '#767577', true: '#81b0ff'}}
+                                        trackColor={{false: '#767577', true: '#FF8A00'}}
                                         thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
                                         ios_backgroundColor="#3e3e3e"
                                         onValueChange={toggleSwitch}
@@ -79,39 +79,7 @@ const HomeScreen = ({navigation}: {navigation: any}) =>{
                                 <View style={styles.stateBox}>
                                     <Text style={styles.stateTextBox}> Bật</Text>
                                     <Switch         
-                                        trackColor={{false: '#767577', true: '#81b0ff'}}
-                                        thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
-                                        ios_backgroundColor="#3e3e3e"
-                                        onValueChange={toggleSwitch}
-                                        value={isEnabled}
-                                        style={styles.toggleInBox}
-                                    />
-                                </View>
-                            </View>
-                        </View>
-                        <View style={styles.listDetailRow}>
-                            <View style={styles.box}>
-                                <Icon style={styles.iconBox} name="lightbulb-on-outline" size={50} color="white"/>
-                                <Text style={styles.titleBox}> Đèn</Text>
-                                <View style={styles.stateBox}>
-                                    <Text style={styles.stateTextBox}> Bật</Text>
-                                    <Switch         
-                                        trackColor={{false: '#767577', true: '#81b0ff'}}
-                                        thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
-                                        ios_backgroundColor="#3e3e3e"
-                                        onValueChange={toggleSwitch}
-                                        value={isEnabled}
-                                        style={styles.toggleInBox}
-                                    />
-                                </View>
-                            </View>
-                            <View style={styles.box}>
-                                <Icon style={styles.iconBox} name="lightbulb-on-outline" size={50} color="white"/>
-                                <Text style={styles.titleBox}> Đèn</Text>
-                                <View style={styles.stateBox}>
-                                    <Text style={styles.stateTextBox}> Bật</Text>
-                                    <Switch         
-                                        trackColor={{false: '#767577', true: '#81b0ff'}}
+                                        trackColor={{false: '#767577', true: '#FF8A00'}}
                                         thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
                                         ios_backgroundColor="#3e3e3e"
                                         onValueChange={toggleSwitch}
@@ -128,7 +96,7 @@ const HomeScreen = ({navigation}: {navigation: any}) =>{
                                 <View style={styles.stateBox}>
                                     <Text style={styles.stateTextBox}> Bật</Text>
                                     <Switch         
-                                        trackColor={{false: '#767577', true: '#81b0ff'}}
+                                        trackColor={{false: '#767577', true: '#FF8A00'}}
                                         thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
                                         ios_backgroundColor="#3e3e3e"
                                         onValueChange={toggleSwitch}
@@ -143,7 +111,39 @@ const HomeScreen = ({navigation}: {navigation: any}) =>{
                                 <View style={styles.stateBox}>
                                     <Text style={styles.stateTextBox}> Bật</Text>
                                     <Switch         
-                                        trackColor={{false: '#767577', true: '#81b0ff'}}
+                                        trackColor={{false: '#767577', true: '#FF8A00'}}
+                                        thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
+                                        ios_backgroundColor="#3e3e3e"
+                                        onValueChange={toggleSwitch}
+                                        value={isEnabled}
+                                        style={styles.toggleInBox}
+                                    />
+                                </View>
+                            </View>
+                        </View>
+                        <View style={styles.listDetailRow}>
+                            <View style={styles.box}>
+                                <Icon style={styles.iconBox} name="lightbulb-on-outline" size={50} color="white"/>
+                                <Text style={styles.titleBox}> Đèn</Text>
+                                <View style={styles.stateBox}>
+                                    <Text style={styles.stateTextBox}> Bật</Text>
+                                    <Switch         
+                                        trackColor={{false: '#767577', true: '#FF8A00'}}
+                                        thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
+                                        ios_backgroundColor="#3e3e3e"
+                                        onValueChange={toggleSwitch}
+                                        value={isEnabled}
+                                        style={styles.toggleInBox}
+                                    />
+                                </View>
+                            </View>
+                            <View style={styles.box}>
+                                <Icon style={styles.iconBox} name="lightbulb-on-outline" size={50} color="white"/>
+                                <Text style={styles.titleBox}> Đèn</Text>
+                                <View style={styles.stateBox}>
+                                    <Text style={styles.stateTextBox}> Bật</Text>
+                                    <Switch         
+                                        trackColor={{false: '#767577', true: '#FF8A00'}}
                                         thumbColor={isEnabled ? '#f5dd4b' : '#f4f3f4'}
                                         ios_backgroundColor="#3e3e3e"
                                         onValueChange={toggleSwitch}
