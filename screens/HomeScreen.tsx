@@ -4,6 +4,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Icon1 from 'react-native-vector-icons/Ionicons';
 import Icon3 from 'react-native-vector-icons/FontAwesome';
 import Icon2 from 'react-native-vector-icons/Feather';
+import BottomBar from '../components/BottomBar';
 
 const HomeScreen = ({navigation}: {navigation: any}) =>{
     const [isEnabled, setIsEnabled] = React.useState(false);
@@ -160,21 +161,7 @@ const HomeScreen = ({navigation}: {navigation: any}) =>{
                 </View>
             </View>
             {/* footer */}
-            <View style={styles.footer}>
-                <View style={styles.leftFooterContainer}>
-                    <Image style={styles.leftFooterButton} source={require('../assets/images/home/left_footer.png')}/>
-                </View>
-                <View style={styles.middleFooterContainer}>
-                    <View style={styles.circleContainer}>
-                        <Icon3 style={styles.middleIconFooterButton} name="microphone" size={50} color="black"/>
-                    </View>
-                </View>
-
-                <View style={styles.rightFooterContainer}>
-                    <Image style={styles.rightFooterButton} source={require('../assets/images/home/right_footer.png')}/>
-                    <Icon3 style={styles.rightIconFooterButton} name="user-o" size={50} color="white"/>
-                </View>
-            </View>
+            <BottomBar/>
         </View>
     );
 }
@@ -334,56 +321,5 @@ const styles = StyleSheet.create({
         flex: 1,
     },
 
-    // footer
-    footer: {
-        flex: 1.25,
-        flexDirection: 'row',
-        // backgroundColor: 'blue'
-        backgroundColor: '#EFF1F5',
 
-    },
-    rightFooterContainer: {
-        flex: 1,
-    },
-    middleFooterContainer: {
-        flex: 1,
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    leftFooterContainer: {
-        flex: 1
-    },
-    leftFooterButton: {
-        flex: 1,
-        justifyContent: 'flex-start',
-        width: '100%',
-        // height: 'undefined',
-    },
-    rightFooterButton: {
-        flex: 1,
-        justifyContent: 'flex-end',
-        width: '100%',
-        // position: 'relative'
-    },
-    circleContainer: {
-        position: 'absolute',
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: 75,
-        height: 75,
-        borderRadius: 100 / 2,
-        backgroundColor: 'red',
-    },
-    middleIconFooterButton: {
-        alignItems: 'center',
-        // backgroundColor: 'blue',
-        
-    },
-    rightIconFooterButton: {
-        position: 'absolute',
-        alignItems: 'flex-end',
-        top: 25,
-        left: 82,
-
-    }
 });
