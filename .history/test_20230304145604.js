@@ -1,0 +1,1 @@
+const temp = document.getElementsByClassName(".temp")

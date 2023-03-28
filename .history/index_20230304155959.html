@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MQTT testing</title>
+</head>
+<body>
+
+    <div class="temp">
+        <p>
+        </p>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript"></script>
+    <script>
+// Create a client instance
+client = new Paho.MQTT.Client("io.adafruit.com", Number(1883), "/api/v2", "Gateway_Adafruit");
+client.startTrace();
+// set callback handlers
+client.onConnectionLost = onConnectionLost;
+client.onMessageArrived = onMessageArrived;
+
+// connect the client
+client.connect({hosts: "https",userName: "dangnguyen", password :"aio_jQtu93uvUOlMqTzCH8h4HsniQlvn",onSuccess:onConnect});
+console.log("attempting to connect...")
+
+
+// called when the client connects
+function onConnect() {
+  // Once a connection has been made, make a subscription and send a message.
+  console.log("onConnect");
+  client.subscribe("dangnguyen/feeds/button1/data");
+//   message = new Paho.MQTT.Message("Hello");
+//   message.destinationName = "/World";
+  //client.send(message);
+//console.log(client.getTraceLog());
+
+  //client.getTraceLog().forEach(function(line){
+  //  console.log('Trace: ' + line)
+  //});
+  //newMessage = new Paho.MQTT.Message("Sent using synonyms!");
+  //newMessage.topic = "/World";
+//   client.publish(message)
+//   client.publish("/World", "Hello from a better publish call!", 1, false)
+
+//   topicMessage = new Paho.MQTT.Message("This is a message where the topic is set by setTopic");
+//   topicMessage.topic = "/World";
+//   client.publish(topicMessage)
+
+
+}
+
+// called when the client loses its connection
+function onConnectionLost(responseObject) {
+  if (responseObject.errorCode !== 0) {
+    console.log("onConnectionLost:"+responseObject.errorMessage);
+  }
+}
+
+// called when a message arrives
+function onMessageArrived(message) {
+  console.log("onMessageArrived:"+message.payloadString);
+}
+    </script>
+</body>
+</html>
