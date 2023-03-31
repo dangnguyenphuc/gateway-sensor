@@ -1,65 +1,35 @@
-###################################### MacOS, Chrome 98. ######################################
-print("Hello ThingsBoard")
-import paho.mqtt.client as mqttclient
-import json
+# from gtts import gTTS
+# import os
+# import soundfile
+# import librosa
+# import matplotlib.pyplot as plt
+# import numpy as np
+# import math
+
+# file_path = r'example.mp3'
+# #
+# #
+# signal, sr = librosa.load(file_path, sr = 16000)
+# # plt.plot(signal)
+# #
+# RMS=math.sqrt(np.mean(signal**2))
+
+# STD_n= 0.001
+# noise=np.random.normal(0, STD_n, signal.shape[0])
+# #
+# # # X=np.fft.rfft(noise)
+# # # radius,angle=to_polar(X)
+# #
+# signal_noise = signal+noise
+
+# soundfile.write('example.mp3',signal_noise,16000)
+# os.system("ffplay example.mp3")
+
+from datetime import datetime
 import time
-import serial.tools.list_ports
-import re
-from threading import Thread
+current_time = datetime.now()
 
+time.sleep(5)
+current_time2 = datetime.now()
 
-def find_port():
-    for port in list(serial.tools.list_ports.comports()):
-        txt = str(port)
-        if "USB Serial" in txt:
-            return (str(port).split("-")[0]+"-"+str(port).split("-")[1]).strip()
-
-mess = ""
-global status
-bbc_port = find_port()
-print(bbc_port)
-if len(bbc_port) > 0:
-    ser = serial.Serial(bbc_port, 115200, bytesize=8, stopbits=serial.STOPBITS_ONE, parity=serial.PARITY_NONE)
-    print(ser)
-
-def processData(data):
-    print(data)
-    data = data.replace("!", "")
-    data = data.replace("#", "")
-    splitData = data.split(":")
-    print(splitData)
-
-def readSerial():
-    bytesToRead = ser.inWaiting()
-    if (bytesToRead > 0):
-        global mess
-        mess = mess + ser.read(bytesToRead).decode("UTF-8")
-        while ("#" in mess) and ("!" in mess):
-            start = mess.find("!")
-            end = mess.find("#")
-            processData(mess[start:end + 1])
-            if (end == len(mess)):
-                mess = ""
-            else:
-                mess = mess[end+1:]
-
-while True:
-
-    if len(bbc_port) >  0:
-        try:
-            readSerial()
-            ser.write("!FAN#".encode())
-            print("DONE")
-        except:
-            pass
-    
-    time.sleep(4)
-
-    if len(bbc_port) >  0:
-        try:
-            readSerial()
-            ser.write("!LI#".encode())
-            print("DONE")
-        except:
-            pass
-    time.sleep(4)
+print(current_time2 - current_time)

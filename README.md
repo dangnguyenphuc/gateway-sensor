@@ -22,9 +22,10 @@ In this project, we will implement a smart home system using YOLO:bit as a main 
 
 * YOLO:bit: Receiving and sending data to gateway.
     - YOLO:bit Pins:
-
         + P0: Light.
-        + P1: Light sensor.
+        + P1: Infrared eye.
+        + P2: Light sensor.
+        + P4: Servo.
         + P14,15: Fan.
         + P19,20 (I2C_1): DHT20 sensor.
         + P19,20 (I2C_2): LCD1602.
@@ -32,7 +33,19 @@ In this project, we will implement a smart home system using YOLO:bit as a main 
     - General: 
     ![](img/v.1.0/yolo%3Abit_general.png)
 ### v.1.1
-* Gateway: Correct some wrong syntax.
+* Gateway: Correct some wrong syntaxes.
 
 ### v.1.2
 * Gateway: Add local database to store sensors data.
+
+### v.1.3
+* Gateway: Add local database to store sensors data.
+
+### v.2.0
+* Gateway: 
+    + Change DB to MongoDB
+    + Push data to MongoDB Cloud instead of publishing data to Adafruit.
+
+* YOLO:bit:
+    + Correct some __STOP AND WAIT__ protocol mistakes.
+    + Add `door_toggle` button.
