@@ -25,7 +25,7 @@ import SelectDropdown from "react-native-select-dropdown";
 const ScreenWidth = Dimensions.get("window").width;
 const ScreenHeight = Dimensions.get("window").height;
 
-let LED_Devices = ["ĐÈN 1", "ĐÈN 2", "ĐÈN 3"];
+let LED_Devices = ["QUẠT 1", "QUẠT 2", "QUẠT 3"];
 let receive_insideTemp = 18 + "\u00B0C";
 let receive_outsideTemp = 30 + "\u00B0C";
 let receive_Moisture = 80 + "%";
@@ -45,7 +45,7 @@ const LedScreen = ({ navigation }) => {
           ></Icon>
         </View>
         <View style={styles.middleHeadContainer}>
-          <Text style={styles.topTitle}>ĐÈN</Text>
+          <Text style={styles.topTitle}>QUẠT</Text>
         </View>
         <View style={styles.rightHeadContainer}>
           <Icon
@@ -63,7 +63,7 @@ const LedScreen = ({ navigation }) => {
           <Text style={styles.leftTextMainContainer}>Tắt</Text>
         </View>
         <View style={styles.middleMainLayout}>
-          <Text style={styles.middleTextMainContainer}>Sáng</Text>
+          <Text style={styles.middleTextMainContainer}>Mạnh</Text>
           <View style={styles.firstMainBox}>
             <View style={styles.secondMainBox}>
               <View style={styles.thirdMainBox}>
@@ -73,7 +73,7 @@ const LedScreen = ({ navigation }) => {
           </View>
         </View>
         <View style={styles.rightMainLayout}>
-          <Text style={styles.rightTextMainContainer}>Rất{"\n"}Sáng</Text>
+          <Text style={styles.rightTextMainContainer}>Rất{"\n"}Mạnh</Text>
         </View>
         {/* <View style={styles.firstLayout}>
           <View style={styles.secondLayout}>
@@ -145,7 +145,7 @@ const LedScreen = ({ navigation }) => {
           onSelect={(selectedItem, index) => {
             console.log(selectedItem, index);
           }}
-          defaultButtonText={"Select LED Devices"}
+          defaultButtonText={"Select FAN Devices"}
           buttonTextAfterSelection={(selectedItem, index) => {
             return selectedItem;
           }}
