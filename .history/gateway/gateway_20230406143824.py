@@ -42,7 +42,7 @@ Door_collection.delete_many({})
 # ADAFRUIT User Information --------------------------------------
 ADAFRUIT_USERNAME = "dangnguyen"
 BROKER_ADDRESS = "io.adafruit.com"
-# ADAFRUIT_ACCESS_TOKEN = "aio_Tpns72HEyXkIXko7394emsFLSZPL"
+ADAFRUIT_ACCESS_TOKEN = "aio_Tpns72HEyXkIXko7394emsFLSZPL"
 PORT = 1883
 #  ---------------------------------------------------------------
 

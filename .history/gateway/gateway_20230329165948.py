@@ -13,27 +13,28 @@ from datetime import datetime
 
 # DATA QUERY EXAMPLE ############################
 
-# current_time = datetime.now().strftime("%d,%b.%H:%M:%S")
+# conn = psycopg2.connect(database="gateway",
+#                         host="192.168.1.12",
+#                         user="postgres",
+#                         password="password",
+#                         port="5432")
 
-# client = MongoClient('mongodb+srv://dangnguyenblackie:dang1012@cluster0.ricdizx.mongodb.net/?retryWrites=true&w=majority')
-    # database 
-db = client["SmartHome"]
-    # collection
-fan_collection = db["Fan"]
-Bulb_collection = db["Bulb"]
-Door_collection = db["Door"]
-sensor_collection = db["sensors"]
+# cursor = conn.cursor()
 
+# current_time = datetime.now().strftime("%H:%M:%S")
+# print("Current Time =", current_time)
 
-fan_collection.delete_many({})
-Bulb_collection.delete_many({})
-sensor_collection.delete_many({})
-Door_collection.delete_many({})
+# temp = "BUTTON1:ON"
+# splitData = temp.split(":")
 
-# res = user_collection.find().sort("id",-1).limit(1)
-# fan_collection.insert_one({"_id": 2, "timestamp": f'{current_time}', "status": "OFF", "value" : 0})
-# print(res[0]['firstName'])
-# sensor_collection.insert_one({"timestamp": f'{current_time}', "temp": float('23.7'), "light" : float('32')})
+# cursor.execute("INSERT INTO feed_value (feed_name,timestamp,value) VALUES ('button1','"+current_time+"',1)")
+# conn.commit()
+# cursor.execute("SELECT * FROM feed_value where timestamp = '10:45:16';")
+# temp = (cursor.fetchall()[0])
+# print(temp[0])
+# cursor.close()
+# conn.close()
+
 ################ DATA QUERY EXAMPLE ################
 
 
@@ -42,7 +43,7 @@ Door_collection.delete_many({})
 # ADAFRUIT User Information --------------------------------------
 ADAFRUIT_USERNAME = "dangnguyen"
 BROKER_ADDRESS = "io.adafruit.com"
-# ADAFRUIT_ACCESS_TOKEN = "aio_Tpns72HEyXkIXko7394emsFLSZPL"
+ADAFRUIT_ACCESS_TOKEN = "aio_sOMP53zN1nXzWToywwZ0Y5ay98ar"
 PORT = 1883
 #  ---------------------------------------------------------------
 
@@ -52,18 +53,24 @@ PORT = 1883
 feed = "dangnguyen/feeds/"
 AIO_FEED_SUBCRIBE = [   "button1/",         # Fan controller
                         "button2/",         # Light controller
-                        "button3/",         # Door controller
                         "FanValue/",        # Fan's rotation
                         "LightValue/",      # Light's brightness
-                        #"sensor1/",         # temperature sensor
-                        #"sensor2/",         # light sensor
+                        "sensor1/",         # temperature sensor
+                        "sensor2/",         # light sensor
                         "FanDisplay/",
                         "LightDisplay/"]         
+AIO_FEED_PUBLISH = ["sensor1", 
+                    "sensor2",
+                    "button1", 
+                    "button2", 
+                    "FanValue", 
+                    "LightValue",
+                    "FanDisplay",
+                    "LightDisplay"]
 jsons = "json"
 feedID = {
     "button1": 2463386,
     "button2": 2463387,
-    "button3": 2494057,
     "FanValue": 2463415,
     "LightValue": 2465220,
     "sensor1": 2462542,
@@ -98,9 +105,9 @@ def find_port():
         if "USB Serial" in txt:
             return (str(port).split("-")[0]+"-"+str(port).split("-")[1]).strip()
 
-# bbc_port = find_port()
-# if len(bbc_port) > 0:
-#     ser = serial.Serial(bbc_port, 115200, bytesize=8, stopbits=serial.STOPBITS_ONE, parity=serial.PARITY_NONE)
+bbc_port = find_port()
+if len(bbc_port) > 0:
+    ser = serial.Serial(bbc_port, 115200, bytesize=8, stopbits=serial.STOPBITS_ONE, parity=serial.PARITY_NONE)
 
 # =============================================================
 
@@ -115,7 +122,6 @@ def subscribed(client, userdata, mid, granted_qos):
 def recv_message(client, userdata, message):
     global fanValue, lightValue
     received =  json.loads(message.payload.decode("utf-8"))
-    current_time = datetime.now().strftime("%d,%b.%H:%M:%S")
     cmd = "" 
     print("Received from: " + str(received['id']))
     #TODO: Update the cmd to control the device
@@ -129,8 +135,7 @@ def recv_message(client, userdata, message):
                 
                 if int(fanValue) >= 100:
                     fanValue = "100"
-                # client.publish(feed + AIO_FEED_PUBLISH[6], int(fanValue))
-                fan_collection.insert_one({"timestamp": f'{current_time}', "server_side": true, "status": "ON", "value": int(fanValue)})
+                client.publish(feed + AIO_FEED_PUBLISH[6], int(fanValue))
                 cmd = "!FAN:ON:"+fanValue+"#"
         
         if received["id"] == feedID["LightValue"]:
@@ -142,60 +147,43 @@ def recv_message(client, userdata, message):
                 
                 if int(lightValue) >= 100:
                     lightValue = "100"
-                # client.publish(feed + AIO_FEED_PUBLISH[7], int(lightValue))
-                Bulb_collection.insert_one({"timestamp": f'{current_time}', "server_side": true, "status": "ON", "value": int(lightValue)})
+                client.publish(feed + AIO_FEED_PUBLISH[7], int(lightValue))
                 cmd = "!LI:ON:"+lightValue+"#"
 
         if received["id"] == feedID["button1"]:
             if received["last_value"] == "ON":
                 cmd = "!FAN:ON:0#"
                 client.publish(feed + AIO_FEED_PUBLISH[6], int(40))
-                fan_collection.insert_one({"timestamp": f'{current_time}', "server_side": true, "status": "ON", "value": 40})
             if received["last_value"] == "OFF":
                 cmd = "!FAN:OFF#"
                 client.publish(feed + AIO_FEED_PUBLISH[6], int(0))
-                fan_collection.insert_one({"timestamp": f'{current_time}', "server_side": true, "status": "OFF", "value": 0})
-
+        
         if received["id"] == feedID["FanDisplay"]:
             if int(received["last_value"]) > 0:
                 cmd = "!FAN:ON:" + str(received["last_value"]) + "#"
-                fan_collection.insert_one({"timestamp": f'{current_time}', "server_side": true, "status": "ON", "value": int(received["last_value"])})
             if int(received["last_value"]) == 0:
                 cmd = "!FAN:OFF#"
-                fan_collection.insert_one({"timestamp": f'{current_time}', "server_side": true, "status": "OFF", "value": 0})
 
         if received["id"] == feedID["button2"]:
             if received["last_value"] == "ON":
                 cmd = "!LI:ON:0#"
                 client.publish(feed + AIO_FEED_PUBLISH[7], int(40))
-                Bulb_collection.insert_one({"timestamp": f'{current_time}', "server_side": true, "status": "ON", "value": 40})
             if received["last_value"] == "OFF":
                 cmd = "!LI:OFF#"
                 client.publish(feed + AIO_FEED_PUBLISH[7], int(0))
-                Bulb_collection.insert_one({"timestamp": f'{current_time}', "server_side": true, "status": "OFF", "value": 0})
-        
-        if received["id"] == feedID["button3"]:
-            if received["last_value"] == "ON":
-                cmd = "!DO:ON#"
-                Door_collection.insert_one({"timestamp": f'{current_time}', "server_side": true, "status": "ON"})
-            if received["last_value"] == "OFF":
-                cmd = "!DO:OFF#"
-                Door_collection.insert_one({"timestamp": f'{current_time}', "server_side": true, "status": "OFF"})
 
         if received["id"] == feedID["LightDisplay"]:
             if int(received["last_value"]) > 0:
                 cmd = "!LI:ON:" + str(received["last_value"]) + "#"
-                Bulb_collection.insert_one({"timestamp": f'{current_time}', "server_side": true, "status": "ON", "value": int(received["last_value"])})
             if int(received["last_value"]) == 0:
                 cmd = "!LI:OFF#"
-                Bulb_collection.insert_one({"timestamp": f'{current_time}', "server_side": true, "status": "OFF", "value": 0})
-# DEBUG ==========================================================
-        # if received["id"] == feedID["sensor1"]:
-        #     print("Temp: " + received["last_value"] + "°C")
 
-        # if received["id"] == feedID["sensor2"]:
-        #     print("Light: " + received["last_value"] + " lux")
-# DEBUG ==========================================================
+        if received["id"] == feedID["sensor1"]:
+            print("Temp: " + received["last_value"] + "°C")
+
+        if received["id"] == feedID["sensor2"]:
+            print("Light: " + received["last_value"] + " lux")
+
     except: 
         pass
     if len(bbc_port) > 0:
@@ -231,64 +219,24 @@ def processData(data):
     data = data.replace("#", "")
     splitData = data.split(":")
     print(splitData)
-    current_time = datetime.now().strftime("%d,%b.%H:%M:%S")
+    
     if splitData[0] == "TE" and splitData[2] == "LI":
-        # client.publish(feed + AIO_FEED_PUBLISH[0], float(splitData[1]))
-        # client.publish(feed + AIO_FEED_PUBLISH[1], float(splitData[1]))
-        sensor_collection.insert_one(
-                {
-                    "timestamp": f'{current_time}',     # time
-                    "server_side": false,               # bool cái này tôi thêm để check có phải gửi từ server hay ko thôi à ko cần trong schema thiết kế
-                    "temp": float(splitData[1]),        
-                    "light" : float(splitData[3])
-                }
-            )
+        client.publish(feed + AIO_FEED_PUBLISH[0], float(splitData[1]))
+        client.publish(feed + AIO_FEED_PUBLISH[1], float(splitData[1]))
         ser.write("!ACK:TELI#".encode())
 
     if splitData[0] == "BUT":
         if splitData[1] == "1":
-            # client.publish(feed + AIO_FEED_PUBLISH[2], (splitData[2]))
-            if splitData[2] == "ON":
-                # client.publish(feed + AIO_FEED_PUBLISH[6], int(splitData[3]))
-                fan_collection.insert_one(
-                        {
-                            "timestamp": f'{current_time}', 
-                            "server_side": false, 
-                            "status": "ON", 
-                            "value": int(splitData[3])
-                        }
-                    )
-            else: 
-                # client.publish(feed + AIO_FEED_PUBLISH[6], 0)
-                fan_collection.insert_one({"timestamp": f'{current_time}', "server_side": false, "status": "OFF", "value": 0})
+            client.publish(feed + AIO_FEED_PUBLISH[2], (splitData[2]))
+            if splitData[1] == "ON":
+                client.publish(feed + AIO_FEED_PUBLISH[6], int(splitData[3]))
             ser.write("!ACK:B1#".encode())
 
-        if splitData[1] == "2":
-            # client.publish(feed + AIO_FEED_PUBLISH[3], (splitData[2]))
-            if splitData[2] == "ON":
-                # client.publish(feed + AIO_FEED_PUBLISH[7], int(splitData[3]))
-                Bulb_collection.insert_one(
-                        {
-                            "timestamp": f'{current_time}', 
-                            "server_side": false, 
-                            "status": "ON", 
-                            "value": int(splitData[3])
-                        }
-                    )
-            else: 
-                # client.publish(feed + AIO_FEED_PUBLISH[7], 0)
-                Bulb_collection.insert_one({"timestamp": f'{current_time}', "server_side": false, "status": "OFF", "value": 0})
+        if splitData[2] == "2":
+            client.publish(feed + AIO_FEED_PUBLISH[3], (splitData[2]))
+            if splitData[1] == "ON":
+                client.publish(feed + AIO_FEED_PUBLISH[7], int(splitData[3]))
             ser.write("!ACK:B2#".encode())
-
-        if splitData[1] == "3":
-            Door_collection.insert_one(
-                    {
-                        "timestamp": f'{current_time}', 
-                        "server_side": false, 
-                        "status": splitData[1]
-                    }
-                )
-            ser.write("!ACK:B3#".encode())
 
 '''
     @name: readSerial()
@@ -344,11 +292,14 @@ client.on_message = recv_message
 '''
 while True:
 
-    # if len(bbc_port) >  0:
-    #     try:
-    #         readSerial()
+    if len(bbc_port) >  0:
+        try:
+            readSerial()
             
-        # except:
-        #     pass
+        except:
+            pass
 
     time.sleep(1)
+
+
+

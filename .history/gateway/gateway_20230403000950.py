@@ -15,7 +15,7 @@ from datetime import datetime
 
 # current_time = datetime.now().strftime("%d,%b.%H:%M:%S")
 
-# client = MongoClient('mongodb+srv://dangnguyenblackie:dang1012@cluster0.ricdizx.mongodb.net/?retryWrites=true&w=majority')
+client = MongoClient('mongodb+srv://dangnguyenblackie:dang1012@cluster0.ricdizx.mongodb.net/?retryWrites=true&w=majority')
     # database 
 db = client["SmartHome"]
     # collection
@@ -42,7 +42,7 @@ Door_collection.delete_many({})
 # ADAFRUIT User Information --------------------------------------
 ADAFRUIT_USERNAME = "dangnguyen"
 BROKER_ADDRESS = "io.adafruit.com"
-# ADAFRUIT_ACCESS_TOKEN = "aio_Tpns72HEyXkIXko7394emsFLSZPL"
+ADAFRUIT_ACCESS_TOKEN = "aio_Tpns72HEyXkIXko7394emsFLSZPL"
 PORT = 1883
 #  ---------------------------------------------------------------
 

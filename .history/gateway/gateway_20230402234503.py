@@ -15,18 +15,18 @@ from datetime import datetime
 
 # current_time = datetime.now().strftime("%d,%b.%H:%M:%S")
 
-# client = MongoClient('mongodb+srv://dangnguyenblackie:dang1012@cluster0.ricdizx.mongodb.net/?retryWrites=true&w=majority')
+client = MongoClient('mongodb+srv://dangnguyenblackie:dang1012@cluster0.ricdizx.mongodb.net/?retryWrites=true&w=majority')
     # database 
 db = client["SmartHome"]
     # collection
 fan_collection = db["Fan"]
-Bulb_collection = db["Bulb"]
+Bub_collection = db["Bub"]
 Door_collection = db["Door"]
 sensor_collection = db["sensors"]
 
 
 fan_collection.delete_many({})
-Bulb_collection.delete_many({})
+Bub_collection.delete_many({})
 sensor_collection.delete_many({})
 Door_collection.delete_many({})
 
@@ -42,7 +42,7 @@ Door_collection.delete_many({})
 # ADAFRUIT User Information --------------------------------------
 ADAFRUIT_USERNAME = "dangnguyen"
 BROKER_ADDRESS = "io.adafruit.com"
-# ADAFRUIT_ACCESS_TOKEN = "aio_Tpns72HEyXkIXko7394emsFLSZPL"
+ADAFRUIT_ACCESS_TOKEN = "aio_Tpns72HEyXkIXko7394emsFLSZPL"
 PORT = 1883
 #  ---------------------------------------------------------------
 
@@ -143,7 +143,7 @@ def recv_message(client, userdata, message):
                 if int(lightValue) >= 100:
                     lightValue = "100"
                 # client.publish(feed + AIO_FEED_PUBLISH[7], int(lightValue))
-                Bulb_collection.insert_one({"timestamp": f'{current_time}', "server_side": true, "status": "ON", "value": int(lightValue)})
+                Bub_collection.insert_one({"timestamp": f'{current_time}', "server_side": true, "status": "ON", "value": int(lightValue)})
                 cmd = "!LI:ON:"+lightValue+"#"
 
         if received["id"] == feedID["button1"]:
@@ -168,11 +168,11 @@ def recv_message(client, userdata, message):
             if received["last_value"] == "ON":
                 cmd = "!LI:ON:0#"
                 client.publish(feed + AIO_FEED_PUBLISH[7], int(40))
-                Bulb_collection.insert_one({"timestamp": f'{current_time}', "server_side": true, "status": "ON", "value": 40})
+                Bub_collection.insert_one({"timestamp": f'{current_time}', "server_side": true, "status": "ON", "value": 40})
             if received["last_value"] == "OFF":
                 cmd = "!LI:OFF#"
                 client.publish(feed + AIO_FEED_PUBLISH[7], int(0))
-                Bulb_collection.insert_one({"timestamp": f'{current_time}', "server_side": true, "status": "OFF", "value": 0})
+                Bub_collection.insert_one({"timestamp": f'{current_time}', "server_side": true, "status": "OFF", "value": 0})
         
         if received["id"] == feedID["button3"]:
             if received["last_value"] == "ON":
@@ -185,10 +185,10 @@ def recv_message(client, userdata, message):
         if received["id"] == feedID["LightDisplay"]:
             if int(received["last_value"]) > 0:
                 cmd = "!LI:ON:" + str(received["last_value"]) + "#"
-                Bulb_collection.insert_one({"timestamp": f'{current_time}', "server_side": true, "status": "ON", "value": int(received["last_value"])})
+                Bub_collection.insert_one({"timestamp": f'{current_time}', "server_side": true, "status": "ON", "value": int(received["last_value"])})
             if int(received["last_value"]) == 0:
                 cmd = "!LI:OFF#"
-                Bulb_collection.insert_one({"timestamp": f'{current_time}', "server_side": true, "status": "OFF", "value": 0})
+                Bub_collection.insert_one({"timestamp": f'{current_time}', "server_side": true, "status": "OFF", "value": 0})
 # DEBUG ==========================================================
         # if received["id"] == feedID["sensor1"]:
         #     print("Temp: " + received["last_value"] + "°C")
@@ -267,28 +267,15 @@ def processData(data):
             # client.publish(feed + AIO_FEED_PUBLISH[3], (splitData[2]))
             if splitData[2] == "ON":
                 # client.publish(feed + AIO_FEED_PUBLISH[7], int(splitData[3]))
-                Bulb_collection.insert_one(
-                        {
-                            "timestamp": f'{current_time}', 
-                            "server_side": false, 
-                            "status": "ON", 
-                            "value": int(splitData[3])
-                        }
-                    )
+                Bub_collection.insert_one({"timestamp": f'{current_time}', "server_side": false, "status": "ON", "value": int(splitData[3])})
             else: 
                 # client.publish(feed + AIO_FEED_PUBLISH[7], 0)
-                Bulb_collection.insert_one({"timestamp": f'{current_time}', "server_side": false, "status": "OFF", "value": 0})
+                Bub_collection.insert_one({"timestamp": f'{current_time}', "server_side": false, "status": "OFF", "value": 0})
             ser.write("!ACK:B2#".encode())
 
         if splitData[1] == "3":
-            Door_collection.insert_one(
-                    {
-                        "timestamp": f'{current_time}', 
-                        "server_side": false, 
-                        "status": splitData[1]
-                    }
-                )
-            ser.write("!ACK:B3#".encode())
+            Door_collection.insert_one({"timestamp": f'{current_time}', "server_side": false, "status": splitData[1]})
+            ser.write("!ACK:B2#".encode())
 
 '''
     @name: readSerial()
