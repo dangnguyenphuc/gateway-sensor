@@ -1,0 +1,9 @@
+[
+    {"message": "mo quat", "lable": 1},
+    {"message": "mo den", "lable": 2},
+    {"message": "bat den", "lable": 2},
+    {"message": "bat cay den", "lable": 2},
+    {"message": "mo cay den", "lable": 2},
+    {"message": "bat cay quat", "lable": 1},
+    {"message": "mo cay quat", "lable": 1}
+]

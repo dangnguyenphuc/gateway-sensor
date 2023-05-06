@@ -1,0 +1,87 @@
+"Can you please turn on the light?",3
+"It's too dark, can you turn on the light?",3
+"Would you mind turning on the light?",3
+"Let's turn on the light and brighten up the room.",3
+"Could you do me a favor and turn on the light?",3
+"The room is too dim, can you turn on the light?",3
+"Hey, can you turn on the light for me?",3
+"It's hard to see, please turn on the light.",3
+"Can you turn on the light so we can see better?",3
+"Would you be kind enough to turn on the light?",3
+"The room is too dark, please turn on the light.",3
+"Can you turn on the light so we can read?",3
+"Let's turn on the light and add some brightness to the room.",3
+"The light is off, can you turn it on please?",3
+"Don't forget to turn on the light before you start working.",3
+"It's too dim, let's turn on the light.",3
+"Hey, could you turn on the light for me please?",3
+"Let's turn on the light and make the room more inviting.",3
+"The room is too dark, can you turn on the light so we can see each other?",3
+"It's hard to see the details, please turn on the light.",3
+"Can you turn on the light so we can find our way?",3
+"Would you mind turning on the light so we can work?",3
+"The room is too dim, let's turn on the light.",3
+"Can you turn on the light so we can take a better look?",3
+"The light is off, can you turn it on for me?",3
+"Hey, can you turn on the light before we start the presentation?",3
+"Let's turn on the light and add some ambiance to the room.",3
+"The room is too dark, can you turn on the light so we can see each other?",3
+"Don't forget to turn on the light before you start cooking.",3
+"It's too dim, let's turn on the light and make it brighter.",3
+"Can you turn on the light so we can take a better picture?",3
+"The light is off, can you turn it on for me please?",3
+"Hey, can you turn on the light so we can find our way around?",3
+"Let's turn on the light and make the room more welcoming.",3
+"The room is too dark, can you turn on the light so we can work?",3
+"Would you mind turning on the light so we can see the colors?",3
+"Can you turn on the light so we can enjoy the view outside?",3
+"The light is off, can you turn it on so we can play a game?",3
+"Hey, can you turn on the light so we can dance?",3
+"Let's turn on the light and create a cozy atmosphere.",3
+"The room is too dim, can you turn on the light so we can focus?",3
+"Can you turn on the light so we can find what we're looking for?",3
+"The light is off, can you turn it on for me so I can finish my work?",3
+"Hey, can you turn on the light so we can watch a movie?",3
+"Let's turn on the light and add some warmth to the room.",3
+"The room is too dark, can you turn on the light so we can play a game?",3
+"Don't forget to turn on the light before you start painting.",3
+"It's too dim, let's turn on the light and make it more vibrant.",3
+"Can you turn on the light so we can appreciate the details?",3
+"The light is off, can you turn it on so we can have a dinner?",3
+"Hey, can you turn on the light so we can enjoy the art?",3
+"Let's turn on the light and create a romantic atmosphere.",3
+"The room is too dark, can you turn on the light so we can practice?",3
+"Would you mind turning on the light so we can do some work?",3
+"Can you turn on the light so we can see the decorations?",3
+"The light is off, can you turn it on for me so I can read?",3
+"Hey, can you turn on the light so we can take some photos?",3
+"Let's turn on the light and make the room more lively.",3
+"The room is too dark, can you turn on the light so we can exercise?",3
+"Don't forget to turn on the light before you start sewing.",3
+"It's too dim, let's turn on the light and make it more vibrant.",3
+"Can you turn on the light so we can see the plants?",3
+"The light is off, can you turn it on for me so I can play the piano?",3
+"Hey, can you turn on the light so we can have a party?",3
+"Let's turn on the light and create a festive atmosphere.",3
+"The room is too dark, can you turn on the light so we can do some yoga?",3
+"Would you mind turning on the light so we can do some crafts?",3
+"Can you turn on the light so we can see the details of the sculpture?",3
+"The light is off, can you turn it on so we can have a talk?",3
+"Hey, can you turn on the light so we can do some makeup?",3
+"Let's turn on the light and create a cozy reading nook.",3
+"The room is too dark, can you turn on the light so we can meditate?",3
+"Don't forget to turn on the light before you start knitting.",3
+"It's too dim, let's turn on the light and make it more inspiring.",3
+"Can you turn on the light so we can see the artwork?",3
+"The light is off, can you turn it on for me so I can write?",3
+"Hey, can you turn on the light so we can have a tea party?",3
+"Let's turn on the light and add some elegance to the room.",3
+"The room is too dark, can you turn on the light so we can do some stretching?",3
+"Would you mind turning on the light so we can do some photography?",3
+"Can you turn on the light so we can see the fashion designs?",3
+"The light is off, can you turn it on so we can have a meeting?",3
+"Hey, can you turn on the light so we can do some woodworking?",3
+"Let's turn on the light and create a peaceful atmosphere.",3
+"The room is too dark, can you turn on the light so we can do some research?",3
+"Don't forget to turn on the light before you start studying.",3
+"It's too dim, let's turn on the light and make it more productive.",3

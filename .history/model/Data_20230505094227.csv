@@ -1,0 +1,483 @@
+Turn on the fan.,1
+Turn off the fan.,0
+Please turn on the fan.,1
+"The fan is off, please turn it on.",1
+Turn the fan up to high.,0
+"The fan is running, please turn it off.",1
+Activate the fan,1
+Switch on the fan.,0
+Can you turn off the fan?,1
+Start the fan.,0
+"Stop the fan, please.",0
+Turn the fan up a notch.,1
+The fan needs to be turned on.,1
+Shut down the fan.,0
+Let's turn the fan on.,1
+"The fan is too loud, please turn it down.",0
+"The room is getting stuffy, turn on the fan.",1
+Turn off the ceiling fan.,0
+Turn on the standing fan.,1
+Can you turn the fan off for a minute?,0
+"The fan is making a strange noise, please turn it off.",0
+"It's too hot in here, turn on the fan.",1
+"The fan is not spinning, please turn it on.",1
+Turn off the oscillating fan.,0
+Please turn the fan to low.,0
+Turn on the pedestal fan.,1
+"The fan is blowing papers everywhere, turn it off.",0
+Switch off the tower fan.,0
+Turn the fan speed up.,1
+Can you turn the fan down?,0
+"The fan is not working, please turn it off.",0
+Turn on the table fan.,1
+"The fan is blowing my hair everywhere, please turn it down.",0
+Turn off the exhaust fan.,0
+"The fan is causing a draft, turn it off.",0
+Turn on the box fan.,1
+"The fan is not powerful enough, turn it up.",1
+Turn off the industrial fan.,0
+Please turn the fan to medium.,0
+Turn on the outdoor fan.,1
+"The fan is shaking, please turn it off.",0
+Turn off the bathroom fan.,0
+Turn the fan up to maximum.,1
+Can you turn the fan to high?,1
+"The fan is dirty, turn it off.",0
+Turn on the attic fan.,1
+"The fan is blocking the view, turn it off.",0
+Turn off the floor fan.,0
+"The fan is making me cold, turn it down.",0
+Turn on the garage fan.,1
+Please turn the fan to speed 3.,1
+Turn off the kitchen fan.,0
+"The fan is too close, turn it off.",0
+Turn on the window fan.,1
+"The fan is making a buzzing sound, please turn it off.",0
+Turn off the wall fan.,0
+"The fan is blowing dust everywhere, turn it off.",0
+Turn on the outdoor ceiling fan.,1
+Please turn the fan to speed 2.,1
+Turn off the attic exhaust fan.,0
+"The fan is too fast, turn it down.",0
+Turn on the porch fan.,1
+"The fan is too slow, turn it up.",1
+Turn off the bedroom fan.,0
+Turn on the outdoor standing fan.,1
+"The fan is making a clicking noise, please turn it off.",0
+Turn off the garage exhaust fan.,0
+Turn the fan to the left.,1
+Please turn the fan to speed 1.,1
+Turn on the outdoor wall fan.,1
+"The fan is not rotating, please turn it on.",1
+Turn off the outdoor pedestal fan.,0
+Turn on the indoor ceiling fan.,1
+Please turn the fan to its lowest setting.,1
+Turn off the outdoor table fan.,0
+"The fan is too high, turn it down.",0
+Turn on the outdoor box fan.,1
+"The fan is too low, turn it up.",1
+Turn off the indoor standing fan.,0
+Please turn the fan to its highest setting.,1
+Turn on the indoor pedestal fan.,1
+"The fan is not blowing air, please turn it on.",1
+Turn off the indoor wall fan.,0
+"The fan is in the wrong direction, please turn it around.",1
+Turn on the indoor table fan.,1
+"The fan is dusty, turn it off.",0
+Turn off the outdoor tower fan.,0
+"The fan is making a whistling sound, please turn it off.",0
+Turn on the indoor box fan.,1
+Please turn the fan up a bit.,1
+Turn off the outdoor oscillating fan.,0
+"The fan is vibrating, please turn it off.",0
+Turn on the indoor tower fan.,1
+"The fan is making a rattling sound, please turn it off.",0
+Turn off the indoor oscillating fan.,0
+Please turn the fan down a bit.,0
+Turn on the indoor wall fan.,1
+"The fan is too hot, turn it off.",0
+Turn off the indoor ceiling fan.,0
+"The fan is not stable, please turn it off.",0
+Turn on the indoor standing fan.,1
+Please turn the fan to its medium setting.,1
+Turn off the outdoor box fan.,0
+"The fan is too powerful, turn it down.",0
+Turn on the indoor oscillating fan.,1
+"The fan is too weak, turn it up.",1
+Turn off the indoor box fan.,0
+Please turn the fan to its lowest speed.,1
+Turn on the indoor wall-mounted fan.,1
+"The fan is not balanced, please turn it off.",0
+Turn off the outdoor wall-mounted fan.,0
+"The fan is obstructed, please turn it off.",0
+Turn on the indoor ceiling-mounted fan.,1
+Please turn the fan to its highest speed.,1
+Turn off the outdoor ceiling-mounted fan.,0
+"The fan is dirty, please turn it off.",0
+Turn on the indoor floor fan.,1
+"The fan is too close to the wall, turn it off.",0
+Turn off the outdoor floor fan.,0
+Please turn the fan to its medium-high speed.,1
+Turn on the indoor wall-mounted oscillating fan.,1
+"The fan is too far away, turn it up.",1
+Turn off the outdoor wall-mounted oscillating fan.,0
+"The fan is too loud, turn it down.",0
+Turn on the indoor ceiling-mounted oscillating fan.,1
+Please turn the fan to its medium-low speed.,1
+Turn off the outdoor ceiling-mounted oscillating fan.,0
+"The fan is too dirty, please turn it off.",0
+Turn on the indoor standing oscillating fan.,1
+"The fan is in the wrong position, turn it off.",0
+Turn off the outdoor standing oscillating fan.,0
+Please turn the fan to its medium-high setting.,1
+Turn on the indoor table oscillating fan.,1
+"The fan is not secure, please turn it off.",0
+Turn off the outdoor table oscillating fan.,0
+Please turn the fan to its medium-low setting.,1
+Turn on the indoor box oscillating fan.,1
+"The fan is making a grinding noise, turn it off.",0
+Turn off the outdoor box oscillating fan.,0
+Please turn the fan to its highest speed.,1
+Turn on the indoor pedestal oscillating fan.,1
+"The fan is too weak, turn it up.",1
+Turn off the outdoor pedestal oscillating fan.,0
+"The fan is too powerful, turn it down.",0
+Turn on the indoor wall-mounted box fan.,1
+Please turn the fan to its lowest speed.,1
+Turn off the outdoor wall-mounted box fan.,0
+"The fan is too hot, turn it off.",0
+Turn on the indoor ceiling-mounted box fan.,1
+"The fan is not oscillating, please turn it on.",1
+Turn off the outdoor ceiling-mounted box fan.,0
+Please turn the fan to its medium speed.,1
+Turn on the indoor floor oscillating fan.,1
+"The fan is too high, turn it down.",0
+Turn off the outdoor floor oscillating fan.,0
+"The fan is not blowing in the right direction, please turn it around.",1
+Turn on the indoor wall-mounted tower fan.,1
+Please turn the fan to its highest setting.,1
+Turn off the outdoor wall-mounted tower fan.,0
+"The fan is not plugged in, please turn it on.",1
+Turn on the indoor ceiling-mounted tower fan.,1
+"The fan is too low, turn it up.",1
+Turn off the outdoor ceiling-mounted tower fan.,0
+Please turn the fan to its medium-high speed.,1
+Turn on the indoor standing tower fan.,1
+"The fan is too noisy, turn it down.",0
+Turn off the outdoor standing tower fan.,0
+Please turn the fan to its medium-low speed.,1
+Turn on the indoor table tower fan.,1
+"The fan is too dusty, turn it off.",0
+Turn off the outdoor table tower fan.,0
+Please turn the fan to its medium speed.,1
+Turn on the indoor box tower fan.,1
+"The fan is too far away, turn it up.",1
+Turn off the outdoor box tower fan.,0
+Please turn the fan to its lowest setting.,1
+Turn on the indoor pedestal tower fan.,1
+"The fan is not stable, turn it off.",0
+Turn off the outdoor pedestal tower fan.,0
+Please turn the fan to its highest speed.,1
+Turn on the indoor wall-mounted oscillating tower fan.,1
+"The fan is not blowing in the right direction, turn it around.",1
+Turn off the outdoor wall-mounted oscillating tower fan.,0
+Please turn the fan to its medium-low speed.,1
+Turn on the indoor ceiling-mounted oscillating tower fan.,1
+"The fan is too hot, turn it off.",0
+Turn off the outdoor ceiling-mounted oscillating tower fan.,0
+Please turn the fan to its medium-high setting.,1
+Turn on the indoor floor oscillating tower fan.,1
+"The fan is too powerful, turn it down.",0
+Turn off the outdoor floor oscillating tower fan.,0
+Please turn the fan to its medium speed.,1
+Turn on the indoor standing oscillating tower fan.,1
+"The fan is not oscillating, turn it on.",0
+Turn off the outdoor standing oscillating tower fan.,0
+Please turn the fan to its highest speed.,1
+Turn on the indoor table oscillating fan.,1
+"The fan is not powerful enough, turn it up.",1
+Turn off the outdoor table oscillating fan.,0
+Please turn the fan to its lowest speed.,0
+"Can you please turn on the light?",3
+"It's too dark, can you turn on the light?",3
+"Would you mind turning on the light?",3
+"Let's turn on the light and brighten up the room.",3
+"Could you do me a favor and turn on the light?",3
+"The room is too dim, can you turn on the light?",3
+"Hey, can you turn on the light for me?",3
+"It's hard to see, please turn on the light.",3
+"Can you turn on the light so we can see better?",3
+"Would you be kind enough to turn on the light?",3
+"The room is too dark, please turn on the light.",3
+"Can you turn on the light so we can read?",3
+"Let's turn on the light and add some brightness to the room.",3
+"The light is off, can you turn it on please?",3
+"Don't forget to turn on the light before you start working.",3
+"It's too dim, let's turn on the light.",3
+"Hey, could you turn on the light for me please?",3
+"Let's turn on the light and make the room more inviting.",3
+"The room is too dark, can you turn on the light so we can see each other?",3
+"It's hard to see the details, please turn on the light.",3
+"Can you turn on the light so we can find our way?",3
+"Would you mind turning on the light so we can work?",3
+"The room is too dim, let's turn on the light.",3
+"Can you turn on the light so we can take a better look?",3
+"The light is off, can you turn it on for me?",3
+"Hey, can you turn on the light before we start the presentation?",3
+"Let's turn on the light and add some ambiance to the room.",3
+"The room is too dark, can you turn on the light so we can see each other?",3
+"Don't forget to turn on the light before you start cooking.",3
+"It's too dim, let's turn on the light and make it brighter.",3
+"Can you turn on the light so we can take a better picture?",3
+"The light is off, can you turn it on for me please?",3
+"Hey, can you turn on the light so we can find our way around?",3
+"Let's turn on the light and make the room more welcoming.",3
+"The room is too dark, can you turn on the light so we can work?",3
+"Would you mind turning on the light so we can see the colors?",3
+"Can you turn on the light so we can enjoy the view outside?",3
+"The light is off, can you turn it on so we can play a game?",3
+"Hey, can you turn on the light so we can dance?",3
+"Let's turn on the light and create a cozy atmosphere.",3
+"The room is too dim, can you turn on the light so we can focus?",3
+"Can you turn on the light so we can find what we're looking for?",3
+"The light is off, can you turn it on for me so I can finish my work?",3
+"Hey, can you turn on the light so we can watch a movie?",3
+"Let's turn on the light and add some warmth to the room.",3
+"The room is too dark, can you turn on the light so we can play a game?",3
+"Don't forget to turn on the light before you start painting.",3
+"It's too dim, let's turn on the light and make it more vibrant.",3
+"Can you turn on the light so we can appreciate the details?",3
+"The light is off, can you turn it on so we can have a dinner?",3
+"Hey, can you turn on the light so we can enjoy the art?",3
+"Let's turn on the light and create a romantic atmosphere.",3
+"The room is too dark, can you turn on the light so we can practice?",3
+"Would you mind turning on the light so we can do some work?",3
+"Can you turn on the light so we can see the decorations?",3
+"The light is off, can you turn it on for me so I can read?",3
+"Hey, can you turn on the light so we can take some photos?",3
+"Let's turn on the light and make the room more lively.",3
+"The room is too dark, can you turn on the light so we can exercise?",3
+"Don't forget to turn on the light before you start sewing.",3
+"It's too dim, let's turn on the light and make it more vibrant.",3
+"Can you turn on the light so we can see the plants?",3
+"The light is off, can you turn it on for me so I can play the piano?",3
+"Hey, can you turn on the light so we can have a party?",3
+"Let's turn on the light and create a festive atmosphere.",3
+"The room is too dark, can you turn on the light so we can do some yoga?",3
+"Would you mind turning on the light so we can do some crafts?",3
+"Can you turn on the light so we can see the details of the sculpture?",3
+"The light is off, can you turn it on so we can have a talk?",3
+"Hey, can you turn on the light so we can do some makeup?",3
+"Let's turn on the light and create a cozy reading nook.",3
+"The room is too dark, can you turn on the light so we can meditate?",3
+"Don't forget to turn on the light before you start knitting.",3
+"It's too dim, let's turn on the light and make it more inspiring.",3
+"Can you turn on the light so we can see the artwork?",3
+"The light is off, can you turn it on for me so I can write?",3
+"Hey, can you turn on the light so we can have a tea party?",3
+"Let's turn on the light and add some elegance to the room.",3
+"The room is too dark, can you turn on the light so we can do some stretching?",3
+"Would you mind turning on the light so we can do some photography?",3
+"Can you turn on the light so we can see the fashion designs?",3
+"The light is off, can you turn it on so we can have a meeting?",3
+"Hey, can you turn on the light so we can do some woodworking?",3
+"Let's turn on the light and create a peaceful atmosphere.",3
+"The room is too dark, can you turn on the light so we can do some research?",3
+"Don't forget to turn on the light before you start studying.",3
+"It's too dim, let's turn on the light and make it more productive.",3
+"Turn off the light.",2
+"Please switch off the light.",2
+"It's time to turn off the light.",2
+"Could you turn off the light?",2
+"The light needs to be turned off.",2
+"Let's turn off the light.",2
+"Don't forget to turn off the light.",2
+"Can you please turn off the light?",2
+"I need you to turn off the light.",2
+"It's time to switch off the light.",2
+"Please switch the light off.",2
+"Turn the light off, please.",2
+"The light needs to be switched off.",2
+"Could you switch off the light?",2
+"Please turn off the light switch.",2
+"Don't leave the light on, turn it off.",2
+"It's important to turn off the light.",2
+"Let's not waste electricity, turn off the light.",2
+"Can you switch off the light for me?",2
+"The light switch needs to be turned off.",2
+"Turn off the light switch, please.",2
+"It's time to turn the light off.",2
+"Please turn the light off.",2
+"Don't forget to switch off the light.",2
+"Could you turn the light off for me?",2
+"I need you to switch off the light.",2
+"The light switch needs to be switched off.",2
+"Please switch off the light switch.",2
+"Let's save energy and turn off the light.",2
+"Can you turn off the light switch for me?",2
+"It's time to switch the light off.",2
+"Please switch off the light switch for me.",2
+"Don't leave the light on, turn it off now.",2
+"It's important to switch off the light.",2
+"Let's conserve energy and turn off the light.",2
+"Could you please turn off the light switch?",2
+"I need you to turn off the light switch.",2
+"The light needs to be powered down.",2
+"Please power down the light.",2
+"It's time to power down the light.",2
+"Don't forget to power down the light.",2
+"Could you power down the light for me?",2
+"Please turn the light off completely.",2
+"Don't leave the light partially on, turn it off completely.",2
+"Let's make sure the light is completely turned off.",2
+"Can you make sure the light is completely turned off?",2
+"The light needs to be fully turned off.",2
+"Please fully turn off the light.",2
+"It's time to fully turn off the light.",2
+"Don't forget to fully turn off the light.",2
+"Could you fully turn off the light for me?",2
+"Please make sure the light is fully turned off.",2
+"Don't leave the light on at all.",2
+"Let's make sure the light is completely off.",2
+"Can you check if the light is fully turned off?",2
+"The light needs to be completely switched off.",2
+"Please switch off the light completely.",2
+"It's time to switch off the light completely.",2
+"Don't forget to switch off the light completely.",2
+"Could you switch off the light completely for me?",2
+"Please make sure the light is switched off completely.",2
+"Don't leave the light partially switched on, switch it off completely.",2
+"Let's make sure the light is completely switched off.",2
+"Can you make sure the light is switched off completely?",2
+"The light needs to be fully switched off.",2
+"Please fully switch off the light.",2
+"It's time to fully switch off the light.",2
+"Don't forget to fully switch off the light.",2
+"Could you fully switch off the light for me?",2
+"Please make sure the light is fully switched off.",2
+"Don't leave the light on at all.",2
+"Let's make sure the light is completely switched off.",2
+"Can you check if the light is fully switched off?",2
+"The light needs to be turned off completely.",2
+"Please turn off the light completely.",2
+"It's time to turn off the light completely.",2
+"Don't forget to turn off the light completely.",2
+"Could you turn off the light completely for me?",2
+"Please make sure the light is turned off completely.",2
+"Don't leave the light partially on, turn it off completely.",2
+"Let's make sure the light is completely turned off.",2
+"Can you make sure the light is turned off completely?",2
+"The light needs to be fully turned off.",2
+"Please fully turn off the light.",2
+"It's time to fully turn off the light.",2
+"Don't forget to fully turn off the light.",2
+"Could you fully turn off the light for me?",2
+"Please make sure the light is fully turned off.",2
+"Don't leave the light on at all.",2
+"Let's make sure the light is completely turned off.",2
+"Can you check if the light is fully turned off?",2
+"The light needs to be completely powered down.",2
+"Please power down the light completely.",2
+"It's time to power down the light completely.",2
+"Don't forget to power down the light completely.",2
+"Could you power down the light completely for me?",2
+"Please make sure the light is powered down completely.",2
+"Don't leave the light partially on, power it down completely.",2
+"Let's make sure the light is completely powered down.",2
+"Can you make sure the light is powered down completely?",2
+"Close the door, please.",4
+"Please close the door.",4
+"It's drafty, could you close the door?",4
+"Don't forget to close the door.",4
+"Could you close the door for me?",4
+"I need you to close the door.",4
+"The door needs to be closed.",4
+"Let's close the door.",4
+"Can you close the door?",4
+"It's time to close the door.",4
+"Please shut the door.",4
+"Could you shut the door for me?",4
+"Don't leave the door open, close it.",4
+"Let's keep the room warm, close the door.",4
+"Don't forget to shut the door.",4
+"Can you shut the door, please?",4
+"It's important to close the door.",4
+"Please ensure the door is closed.",4
+"Could you ensure the door is closed for me?",4
+"The door needs to be shut.",4
+"Let's make sure the door is closed.",4
+"Don't leave the door ajar, shut it completely.",4
+"Can you make sure the door is closed?",4
+"It's time to shut the door.",4
+"Please pull the door shut.",4
+"Could you pull the door shut for me?",4
+"Don't forget to pull the door shut.",4
+"Can you pull the door shut, please?",4
+"It's important to pull the door shut.",4
+"Please ensure the door is pulled shut.",4
+"Could you ensure the door is pulled shut for me?",4
+"The door needs to be pulled shut.",4
+"Let's make sure the door is pulled shut.",4
+"Don't leave the door ajar, pull it shut.",4
+"Can you make sure the door is pulled shut?",4
+"It's time to pull the door shut.",4
+"Please close the door all the way.",4
+"Could you close the door all the way for me?",4
+"Don't forget to close the door all the way.",4
+"Can you close the door all the way, please?",4
+"It's important to close the door all the way.",4
+"Please ensure the door is closed all the way.",4
+"Could you ensure the door is closed all the way for me?",4
+"The door needs to be closed all the way.",4
+"Let's make sure the door is closed all the way.",4
+"Don't leave the door partially open, close it all the way.",4
+"Can you make sure the door is closed all the way?",4
+"It's time to close the door all the way.",4
+"Please push the door closed.",4
+"Could you push the door closed for me?",4
+"Don't forget to push the door closed.",4
+"Can you push the door closed, please?",4
+"It's important to push the door closed.",4
+"Please ensure the door is pushed closed.",4
+"Could you ensure the door is pushed closed for me?",4
+"The door needs to be pushed closed.",4
+"Let's make sure the door is pushed closed.",4
+"Don't leave the door partially open, push it closed.",4
+"Can you make sure the door is pushed closed?",4
+"It's time to push the door closed.",4
+"Please latch the door.",4
+"Could you latch the door for me?",4
+"Don't forget to latch the door.",4
+"Can you latch the door, please?",4
+"It's important to latch the door.",4
+"Please ensure the door is latched.",4
+"Could you ensure the door is latched for me?",4
+"The door needs to be latched.",4
+"Let's make sure the door is latched.",4
+"Don't leave the door unlatched, latch it.",4
+"Can you make sure the door is latched?",4
+"It's time to latch the door.",4
+"Please close and latch the door.",4
+"Could you close and latch the door for me?",4
+"Don't forget to close and latch the door.",4
+"Can you close and latch the door, please?",4
+"It's important to close and latch the door.",4
+"Please ensure the door is closed and latched.",4
+"Could you ensure the door is closed and latched for me?",4
+"The door needs to be closed and latched.",4
+"Let's make sure the door is closed and latched.",4
+"Don't leave the door partially open, close and latch it.",4
+"Can you make sure the door is closed and latched?",4
+"It's time to close and latch the door.",4
+"Please slam the door shut.",4
+"Could you slam the door shut for me?",4
+"Don't forget to slam the door shut.",4
+"Can you slam the door shut, please?",4
+"It's important to slam the door shut.",4
+"Please ensure the door is slammed shut.",4
+"Could you ensure the door is slammed shut for me?",4
+"The door needs to be slammed shut.",4
+"Let's make sure the door is slammed shut.",4
+"Don't leave the door partially open, slam it shut.",4
+"Can you make sure the door is slammed shut?",4
+"It's time to slam the door shut.",4

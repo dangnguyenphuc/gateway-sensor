@@ -1,0 +1,21 @@
+[
+    {"message": "mo quat", "lable": 1},
+    {"message": "mo quet", "lable": 1},
+    {"message": "mo den", "lable": 3},
+    {"message": "bat den", "lable": 3},
+    {"message": "bat cay den", "lable": 3},
+    {"message": "mo cay den", "lable": 3},
+    {"message": "mo cai den", "lable": 3},
+    {"message": "bat cay quat", "lable": 1},
+    {"message": "mo cay quat", "lable": 1},
+    {"message": "mo cai quat", "lable": 1},
+    {"message": "tat quat", "lable": 1},
+    {"message": "tat den", "lable": 3},
+    {"message": "tat den", "lable": 3},
+    {"message": "tat cay den", "lable": 3},
+    {"message": "tat cay den", "lable": 3},
+    {"message": "tat cai den", "lable": 3},
+    {"message": "bat cay quat", "lable": 1},
+    {"message": "mo cay quat", "lable": 1},
+    {"message": "mo cai quat", "lable": 1}
+]

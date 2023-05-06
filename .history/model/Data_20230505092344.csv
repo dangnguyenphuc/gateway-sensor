@@ -1,0 +1,300 @@
+Turn on the fan.,1
+Turn off the fan.,0
+Please turn on the fan.,1
+"The fan is off, please turn it on.",1
+Turn the fan up to high.,0
+"The fan is running, please turn it off.",1
+Activate the fan,1
+Switch on the fan.,0
+Can you turn off the fan?,1
+Start the fan.,0
+"Stop the fan, please.",0
+Turn the fan up a notch.,1
+The fan needs to be turned on.,1
+Shut down the fan.,0
+Let's turn the fan on.,1
+"The fan is too loud, please turn it down.",0
+"The room is getting stuffy, turn on the fan.",1
+Turn off the ceiling fan.,0
+Turn on the standing fan.,1
+Can you turn the fan off for a minute?,0
+"The fan is making a strange noise, please turn it off.",0
+"It's too hot in here, turn on the fan.",1
+"The fan is not spinning, please turn it on.",1
+Turn off the oscillating fan.,0
+Please turn the fan to low.,0
+Turn on the pedestal fan.,1
+"The fan is blowing papers everywhere, turn it off.",0
+Switch off the tower fan.,0
+Turn the fan speed up.,1
+Can you turn the fan down?,0
+"The fan is not working, please turn it off.",0
+Turn on the table fan.,1
+"The fan is blowing my hair everywhere, please turn it down.",0
+Turn off the exhaust fan.,0
+"The fan is causing a draft, turn it off.",0
+Turn on the box fan.,1
+"The fan is not powerful enough, turn it up.",1
+Turn off the industrial fan.,0
+Please turn the fan to medium.,0
+Turn on the outdoor fan.,1
+"The fan is shaking, please turn it off.",0
+Turn off the bathroom fan.,0
+Turn the fan up to maximum.,1
+Can you turn the fan to high?,1
+"The fan is dirty, turn it off.",0
+Turn on the attic fan.,1
+"The fan is blocking the view, turn it off.",0
+Turn off the floor fan.,0
+"The fan is making me cold, turn it down.",0
+Turn on the garage fan.,1
+Please turn the fan to speed 3.,1
+Turn off the kitchen fan.,0
+"The fan is too close, turn it off.",0
+Turn on the window fan.,1
+"The fan is making a buzzing sound, please turn it off.",0
+Turn off the wall fan.,0
+"The fan is blowing dust everywhere, turn it off.",0
+Turn on the outdoor ceiling fan.,1
+Please turn the fan to speed 2.,1
+Turn off the attic exhaust fan.,0
+"The fan is too fast, turn it down.",0
+Turn on the porch fan.,1
+"The fan is too slow, turn it up.",1
+Turn off the bedroom fan.,0
+Turn on the outdoor standing fan.,1
+"The fan is making a clicking noise, please turn it off.",0
+Turn off the garage exhaust fan.,0
+Turn the fan to the left.,1
+Please turn the fan to speed 1.,1
+Turn on the outdoor wall fan.,1
+"The fan is not rotating, please turn it on.",1
+Turn off the outdoor pedestal fan.,0
+Turn on the indoor ceiling fan.,1
+Please turn the fan to its lowest setting.,1
+Turn off the outdoor table fan.,0
+"The fan is too high, turn it down.",0
+Turn on the outdoor box fan.,1
+"The fan is too low, turn it up.",1
+Turn off the indoor standing fan.,0
+Please turn the fan to its highest setting.,1
+Turn on the indoor pedestal fan.,1
+"The fan is not blowing air, please turn it on.",1
+Turn off the indoor wall fan.,0
+"The fan is in the wrong direction, please turn it around.",1
+Turn on the indoor table fan.,1
+"The fan is dusty, turn it off.",0
+Turn off the outdoor tower fan.,0
+"The fan is making a whistling sound, please turn it off.",0
+Turn on the indoor box fan.,1
+Please turn the fan up a bit.,1
+Turn off the outdoor oscillating fan.,0
+"The fan is vibrating, please turn it off.",0
+Turn on the indoor tower fan.,1
+"The fan is making a rattling sound, please turn it off.",0
+Turn off the indoor oscillating fan.,0
+Please turn the fan down a bit.,0
+Turn on the indoor wall fan.,1
+"The fan is too hot, turn it off.",0
+Turn off the indoor ceiling fan.,0
+"The fan is not stable, please turn it off.",0
+Turn on the indoor standing fan.,1
+Please turn the fan to its medium setting.,1
+Turn off the outdoor box fan.,0
+"The fan is too powerful, turn it down.",0
+Turn on the indoor oscillating fan.,1
+"The fan is too weak, turn it up.",1
+Turn off the indoor box fan.,0
+Please turn the fan to its lowest speed.,1
+Turn on the indoor wall-mounted fan.,1
+"The fan is not balanced, please turn it off.",0
+Turn off the outdoor wall-mounted fan.,0
+"The fan is obstructed, please turn it off.",0
+Turn on the indoor ceiling-mounted fan.,1
+Please turn the fan to its highest speed.,1
+Turn off the outdoor ceiling-mounted fan.,0
+"The fan is dirty, please turn it off.",0
+Turn on the indoor floor fan.,1
+"The fan is too close to the wall, turn it off.",0
+Turn off the outdoor floor fan.,0
+Please turn the fan to its medium-high speed.,1
+Turn on the indoor wall-mounted oscillating fan.,1
+"The fan is too far away, turn it up.",1
+Turn off the outdoor wall-mounted oscillating fan.,0
+"The fan is too loud, turn it down.",0
+Turn on the indoor ceiling-mounted oscillating fan.,1
+Please turn the fan to its medium-low speed.,1
+Turn off the outdoor ceiling-mounted oscillating fan.,0
+"The fan is too dirty, please turn it off.",0
+Turn on the indoor standing oscillating fan.,1
+"The fan is in the wrong position, turn it off.",0
+Turn off the outdoor standing oscillating fan.,0
+Please turn the fan to its medium-high setting.,1
+Turn on the indoor table oscillating fan.,1
+"The fan is not secure, please turn it off.",0
+Turn off the outdoor table oscillating fan.,0
+Please turn the fan to its medium-low setting.,1
+Turn on the indoor box oscillating fan.,1
+"The fan is making a grinding noise, turn it off.",0
+Turn off the outdoor box oscillating fan.,0
+Please turn the fan to its highest speed.,1
+Turn on the indoor pedestal oscillating fan.,1
+"The fan is too weak, turn it up.",1
+Turn off the outdoor pedestal oscillating fan.,0
+"The fan is too powerful, turn it down.",0
+Turn on the indoor wall-mounted box fan.,1
+Please turn the fan to its lowest speed.,1
+Turn off the outdoor wall-mounted box fan.,0
+"The fan is too hot, turn it off.",0
+Turn on the indoor ceiling-mounted box fan.,1
+"The fan is not oscillating, please turn it on.",1
+Turn off the outdoor ceiling-mounted box fan.,0
+Please turn the fan to its medium speed.,1
+Turn on the indoor floor oscillating fan.,1
+"The fan is too high, turn it down.",0
+Turn off the outdoor floor oscillating fan.,0
+"The fan is not blowing in the right direction, please turn it around.",1
+Turn on the indoor wall-mounted tower fan.,1
+Please turn the fan to its highest setting.,1
+Turn off the outdoor wall-mounted tower fan.,0
+"The fan is not plugged in, please turn it on.",1
+Turn on the indoor ceiling-mounted tower fan.,1
+"The fan is too low, turn it up.",1
+Turn off the outdoor ceiling-mounted tower fan.,0
+Please turn the fan to its medium-high speed.,1
+Turn on the indoor standing tower fan.,1
+"The fan is too noisy, turn it down.",0
+Turn off the outdoor standing tower fan.,0
+Please turn the fan to its medium-low speed.,1
+Turn on the indoor table tower fan.,1
+"The fan is too dusty, turn it off.",0
+Turn off the outdoor table tower fan.,0
+Please turn the fan to its medium speed.,1
+Turn on the indoor box tower fan.,1
+"The fan is too far away, turn it up.",1
+Turn off the outdoor box tower fan.,0
+Please turn the fan to its lowest setting.,1
+Turn on the indoor pedestal tower fan.,1
+"The fan is not stable, turn it off.",0
+Turn off the outdoor pedestal tower fan.,0
+Please turn the fan to its highest speed.,1
+Turn on the indoor wall-mounted oscillating tower fan.,1
+"The fan is not blowing in the right direction, turn it around.",1
+Turn off the outdoor wall-mounted oscillating tower fan.,0
+Please turn the fan to its medium-low speed.,1
+Turn on the indoor ceiling-mounted oscillating tower fan.,1
+"The fan is too hot, turn it off.",0
+Turn off the outdoor ceiling-mounted oscillating tower fan.,0
+Please turn the fan to its medium-high setting.,1
+Turn on the indoor floor oscillating tower fan.,1
+"The fan is too powerful, turn it down.",0
+Turn off the outdoor floor oscillating tower fan.,0
+Please turn the fan to its medium speed.,1
+Turn on the indoor standing oscillating tower fan.,1
+"The fan is not oscillating, turn it on.",0
+Turn off the outdoor standing oscillating tower fan.,0
+Please turn the fan to its highest speed.,1
+Turn on the indoor table oscillating fan.,1
+"The fan is not powerful enough, turn it up.",1
+Turn off the outdoor table oscillating fan.,0
+Please turn the fan to its lowest speed.,0
+"Can you please turn off the lights?", 2
+"It's time to turn off the lights.", 2
+"Would you mind turning off the lights?", 2
+"Let's turn off the lights and get some sleep.", 2
+Could you do me a favor and turn off the lights?
+The lights are still on, can you turn them off?
+Hey, can you turn off the lights for me?
+Don't forget to turn off the lights before you leave.
+It's getting late, let's turn off the lights.
+Can we turn off the lights now?
+Would you be kind enough to turn off the lights?
+The lights are too bright, can you turn them down or off?
+Could you please turn off the lights now?
+It's time to save some energy and turn off the lights.
+Please turn off the lights when you're finished.
+Hey, could you turn off the lights for me please?
+Let's turn off the lights and save some money on our energy bill.
+The lights are on, can you turn them off please?
+Don't forget to turn off the lights when you're done.
+It's getting dark, let's turn off the lights.
+Can you turn off the lights so we can enjoy the night sky?
+Would you mind turning off the lights before you go?
+Can you turn off the lights so we can watch the stars?
+Let's turn off the lights and enjoy the peacefulness.
+The lights are still on, can you turn them off please?
+Hey, can you turn off the lights before you leave?
+Please turn off the lights to save energy.
+Can we turn off the lights to conserve electricity?
+Would you be so kind as to turn off the lights?
+The lights are too bright, can you turn them off please?
+Could you please turn off the lights to save energy?
+It's time to turn off the lights and go to bed.
+Can you turn off the lights so we can sleep?
+Would you mind turning off the lights so we can get some rest?
+Can you turn off the lights to reduce our carbon footprint?
+Let's turn off the lights and enjoy the darkness.
+The lights are on, can you turn them off to save energy?
+Don't forget to turn off the lights to reduce our energy consumption.
+It's getting late, let's turn off the lights and go to bed.
+Can you turn off the lights so we can conserve energy?
+Would you mind turning off the lights to save energy?
+Can you turn off the lights to help the environment?
+Let's turn off the lights and save some money.
+The lights are still on, can you turn them off to save energy?
+Hey, can you turn off the lights to reduce our electricity usage?
+Please turn off the lights to help the planet.
+Can we turn off the lights to save energy and money?
+Would you be kind enough to turn off the lights and help the environment?
+The lights are too bright, can you turn them off to conserve energy?
+Could you please turn off the lights to save energy and reduce our carbon footprint?
+It's time to turn off the lights and reduce our energy usage.
+Can you turn off the lights to help reduce our impact on the environment?
+Would you mind turning off the lights to save energy and money?
+Can you turn off the lights to reduce our carbon emissions?
+Let's turn off the lights and enjoy the peace and quiet.
+The lights are on, can you turn them off to help the environment?
+Don't forget to turn off the lights to save energy and money.
+It's getting dark, let's turn off the lights and enjoy the stars.
+Can you turn off the lights to help conserve energy?
+Would you be so kind as to turn off the lights and help the planet?
+The lights are too bright, can you turn them off to save energy and reduce our carbon footprint?
+Could you please turn off the lights to reduce our energy consumption?
+It's time to turn off the lights and reduce our impact on the environment.
+Can you turn off the lights to help save the planet?
+Would you mind turning off the lights to reduce our energy usage?
+Can you turn off the lights to help save money on our energy bill?
+Let's turn off the lights and enjoy the natural darkness.
+The lights are still on, can you turn them off to help the environment?
+Hey, can you turn off the lights to reduce our energy usage?
+Please turn off the lights to help save the planet and reduce our carbon footprint.
+Can we turn off the lights to reduce our impact on the environment?
+Would you be kind enough to turn off the lights to save energy and money?
+The lights are too bright, can you turn them off to reduce our energy consumption?
+Could you please turn off the lights to help the environment and reduce our carbon footprint?
+It's time to turn off the lights and reduce our carbon emissions.
+Can you turn off the lights to help conserve energy and reduce our impact on the environment?
+Would you mind turning off the lights to help save the planet?
+Can you turn off the lights to help reduce our carbon footprint?
+Let's turn off the lights and enjoy the natural beauty.
+The lights are on, can you turn them off to reduce our energy usage?
+Don't forget to turn off the lights to help save the environment.
+It's getting late, let's turn off the lights and conserve energy.
+Can you turn off the lights to help reduce our impact on the planet?
+Would you be so kind as to turn off the lights to save energy and money?
+The lights are too bright, can you turn them off to help save the planet?
+Could you please turn off the lights to help the environment and save money?
+It's time to turn off the lights and reduce our carbon footprint.
+Can you turn off the lights to help conserve energy and reduce our carbon emissions?
+Would you mind turning off the lights to help the planet and save money?
+Can you turn off the lights to help reduce our impact on the planet and save energy?
+Let's turn off the lights and enjoy the peacefulness of the night.
+The lights are still on, can you turn them off to help the environment and save money?
+Hey, can you turn off the lights to conserve energy and reduce our carbon footprint?
+Please turn off the lights to help save the planet and reduce our energy usage.
+Can we turn off the lights to help the environment and reduce our carbon emissions?
+Would you be kind enough to turn off the lights to save energy and reduce our impact on the planet?
+The lights are too bright, can you turn them off to conserve energy and help the environment?
+Could you please turn off the lights to reduce our carbon footprint and help save the planet?
+It's time to turn off the lights and do our part to save the environment.
+Can you turn off the lights to help reduce our carbon emissions and protect the planet for future generations?
